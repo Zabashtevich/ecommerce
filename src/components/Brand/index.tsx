@@ -5,7 +5,7 @@ import {
   Wrapper,
   LeftPart,
   RightPart,
-} from "./styles/header";
+} from "./styles/brand";
 
 export default function Brand() {
   return (

@@ -1,3 +1,9 @@
+import AppLayout from "@src/layout";
+
 export default function Home() {
-  return null;
+  return (
+    <AppLayout>
+      <div />
+    </AppLayout>
+  );
 }
