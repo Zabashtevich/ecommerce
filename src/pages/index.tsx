@@ -1,7 +1,7 @@
 import Head from "next/head";
 
+import { Wallpaper, Slogan } from "@src/components";
 import AppLayout from "@src/layout";
-import { Wallpaper } from "@src/components";
 
 export default function Home() {
   return (
@@ -11,6 +11,7 @@ export default function Home() {
       </Head>
       <AppLayout>
         <Wallpaper />
+        <Slogan />
       </AppLayout>
     </>
   );

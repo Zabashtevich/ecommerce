@@ -4,6 +4,7 @@ export const Container = styled.section`
   justify-content: center;
   position: relative;
   display: flex;
+  z-index: 1000;
   width: 100%;
 
   &::before {

@@ -1,3 +1,5 @@
+import { wallpaperLinks } from "@src/fixtures/wallpaper";
+import { useState } from "react";
 import { FC } from "react";
 
 import {
@@ -9,12 +11,20 @@ import {
 } from "./style/wallpaper";
 
 const Wallpaper: FC = () => {
+  const [activeThumbnail, setActiveThumbnail] = useState(0);
+
   return (
     <Container>
-      <Thumbnail src="/first-thumbnail.webp" />
+      <Thumbnail src={`${wallpaperLinks[activeThumbnail]}`} />
       <Wrapper>
-        <LeftToggler />
-        <RightToggler />
+        <LeftToggler
+          onClick={() => setActiveThumbnail(0)}
+          selected={activeThumbnail === 0}
+        />
+        <RightToggler
+          onClick={() => setActiveThumbnail(1)}
+          selected={activeThumbnail === 1}
+        />
       </Wrapper>
     </Container>
   );

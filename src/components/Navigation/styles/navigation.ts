@@ -9,6 +9,7 @@ export const Container = styled.section`
   position: relative;
   margin-top: 1rem;
   display: flex;
+  z-index: 1000;
   width: 100%;
 `;
 
