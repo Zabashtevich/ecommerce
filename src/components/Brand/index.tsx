@@ -1,21 +1,15 @@
-import {
-  Container,
-  LeftLine,
-  RightLine,
-  Wrapper,
-  LeftPart,
-  RightPart,
-} from "./styles/brand";
+import Link from "next/link";
+
+import { Container, LinkWrapper, Logo } from "./styles/brand";
 
 export default function Brand() {
   return (
     <Container>
-      <LeftLine />
-      <Wrapper>
-        <LeftPart>JOLY.</LeftPart>
-        <RightPart>BELL</RightPart>
-      </Wrapper>
-      <RightLine />
+      <Link href="/" passHref>
+        <LinkWrapper title="home page">
+          <Logo src="/logo.png" />
+        </LinkWrapper>
+      </Link>
     </Container>
   );
 }
