@@ -1,26 +1,23 @@
-import { useEffect } from "react";
 import { createPortal } from "react-dom";
 
 import { Registration } from "@src/components";
+import { useRegModal } from "../../contexts";
+
+if (typeof document !== "undefined") {
+  const current: HTMLDivElement = document.createElement("div");
+  current.setAttribute("id", "registration-root");
+  document.body.appendChild(current);
+}
 
 const RegistrationModal = () => {
-  useEffect(() => {
-    const root: HTMLDivElement = document.createElement("div");
-    root.setAttribute("id", "registration-root");
-    document.body.appendChild(root);
+  const { visible, setVisible } = useRegModal();
 
-    return () => {
-      document.body.removeChild(root);
-    };
-  });
-
-  return (
-    true &&
-    createPortal(
-      <Registration />,
-      document.getElementById("modal-root") as HTMLDivElement,
-    )
-  );
+  return visible
+    ? createPortal(
+        <Registration setVisible={setVisible} />,
+        document.getElementById("registration-root") as HTMLDivElement,
+      )
+    : null;
 };
 
 export default RegistrationModal;

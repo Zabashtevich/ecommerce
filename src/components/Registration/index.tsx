@@ -20,12 +20,16 @@ import {
   Login,
 } from "./styles/registration";
 
-const Registration: FC = () => {
+interface IRegistration {
+  setVisible: (arg: boolean) => void;
+}
+
+const Registration: FC<IRegistration> = ({ setVisible }) => {
   return (
     <>
-      <Overlay />
+      <Overlay onClick={() => setVisible(false)} />
       <Container>
-        <Close />
+        <Close onClick={() => setVisible(false)} />
         <Header>
           <Title>Регистрация</Title>
         </Header>
