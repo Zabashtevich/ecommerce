@@ -16,7 +16,7 @@ import {
   Footer,
   Subtitle,
   SocialList,
-  Google,
+  Social,
   Or,
   Login,
 } from "./styles/registration";
@@ -55,7 +55,8 @@ const Registration: FC<IRegistration> = ({ setVisible }) => {
         <Footer>
           <Subtitle>Зарегистрироваться через:</Subtitle>
           <SocialList>
-            <Google />
+            <Social src="/api-logo/vk.svg" />
+            <Social src="/api-logo/google.svg" />
           </SocialList>
           <Or>или</Or>
           <Login>ВОЙТИ</Login>

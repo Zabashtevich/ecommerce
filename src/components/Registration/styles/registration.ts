@@ -32,6 +32,7 @@ export const Window = styled.div`
 `;
 
 export const Overlay = styled.div`
+  background-color: rgba(0, 0, 0, 0.5);
   position: absolute;
   bottom: 0;
   right: 0;
@@ -139,9 +140,18 @@ export const Subtitle = styled.span`
   color: #818d92;
 `;
 
-export const SocialList = styled.div``;
+export const SocialList = styled.div`
+  align-items: center;
+  display: flex;
+  gap: 10px;
+`;
 
-export const Google = styled.div``;
+export const Social = styled.img`
+  border-radius: 50%;
+  object-fit: cover;
+  margin-top: 10px;
+  width: 40px;
+`;
 
 export const Or = styled.span`
   position: relative;
