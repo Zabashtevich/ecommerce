@@ -3,9 +3,7 @@ import "styled-components";
 declare module "styled-components" {
   export interface DefaultTheme {
     fontSize: {
-      app: {
-        logo: string;
-      };
+      nav: string;
     };
   }
 }

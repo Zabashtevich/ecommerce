@@ -30,6 +30,6 @@ export const Container = styled.section`
 export const LinkWrapper = styled.a``;
 
 export const Logo = styled.img`
-  margin-top: 3rem;
+  margin-top: 2rem;
   display: flex;
 `;

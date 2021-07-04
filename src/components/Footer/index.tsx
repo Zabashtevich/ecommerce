@@ -1,5 +1,9 @@
+import { FC } from "react";
+
 import { Container } from "./styles/footer";
 
-export default function Footer() {
+const Footer: FC = () => {
   return <Container></Container>;
-}
+};
+
+export default Footer;

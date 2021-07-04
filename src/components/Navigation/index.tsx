@@ -1,6 +1,12 @@
+import { FC } from "react";
+import Link from "next/link";
+
+import { NavigationCategories } from "@src/fixtures/nav";
 import {
   Container,
   Navbar,
+  NavList,
+  NavItem,
   NavLink,
   Buttons,
   Account,
@@ -9,11 +15,21 @@ import {
   Price,
 } from "./styles/navigation";
 
-export default function Navigation() {
+const Navigation: FC = () => {
   return (
     <Container>
       <Navbar>
-        <NavLink></NavLink>
+        <NavList>
+          {NavigationCategories.map((item) => (
+            <NavItem key={item.name}>
+              <Link href={`/category/${item.category}`} passHref>
+                <NavLink title={`go to ${item.category}`}>
+                  {item.name.toUpperCase()}
+                </NavLink>
+              </Link>
+            </NavItem>
+          ))}
+        </NavList>
       </Navbar>
       <Buttons>
         <Account />
@@ -24,4 +40,6 @@ export default function Navigation() {
       </Buttons>
     </Container>
   );
-}
+};
+
+export default Navigation;

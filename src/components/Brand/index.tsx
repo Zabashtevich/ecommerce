@@ -1,8 +1,9 @@
 import Link from "next/link";
+import { FC } from "react";
 
 import { Container, LinkWrapper, Logo } from "./styles/brand";
 
-export default function Brand() {
+const Brand: FC = () => {
   return (
     <Container>
       <Link href="/" passHref>
@@ -12,4 +13,6 @@ export default function Brand() {
       </Link>
     </Container>
   );
-}
+};
+
+export default Brand;
