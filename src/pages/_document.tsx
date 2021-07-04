@@ -45,6 +45,8 @@ class MyDocument extends Document {
             as="font"
             crossOrigin=""
           />
+          <link rel="preload" as="image" href="/first-thumbnail.webp" />
+          <link rel="preload" as="image" href="/second-thumbnail.webp" />
         </Head>
         <body>
           <Main />

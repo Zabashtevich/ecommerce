@@ -27,8 +27,29 @@ export const NavItem = styled.li``;
 
 export const NavLink = styled.a`
   font-size: ${({ theme }) => theme.fontSize.nav};
+  letter-spacing: 1.05px;
   text-decoration: none;
+  position: relative;
   color: inherit;
+  display: flex;
+
+  ::after {
+    transform: translateX(-50%);
+    background-color: white;
+    position: absolute;
+    height: 1px;
+    content: "";
+    top: 120%;
+    left: 50%;
+    width: 0;
+  }
+
+  :hover {
+    ::after {
+      transition: 400ms;
+      width: 100%;
+    }
+  }
 `;
 
 export const Buttons = styled.div`

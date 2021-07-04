@@ -1,9 +1,17 @@
+import Head from "next/head";
+
 import AppLayout from "@src/layout";
+import { Wallpaper } from "@src/components";
 
 export default function Home() {
   return (
-    <AppLayout>
-      <div />
-    </AppLayout>
+    <>
+      <Head>
+        <title>Joly Bell</title>
+      </Head>
+      <AppLayout>
+        <Wallpaper />
+      </AppLayout>
+    </>
   );
 }
