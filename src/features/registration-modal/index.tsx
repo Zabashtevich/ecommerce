@@ -2,6 +2,7 @@ import { createPortal } from "react-dom";
 
 import { Registration } from "@src/components";
 import { useRegModal } from "../../contexts";
+import { useEffect } from "react";
 
 if (typeof document !== "undefined") {
   const current: HTMLDivElement = document.createElement("div");
@@ -11,6 +12,15 @@ if (typeof document !== "undefined") {
 
 const RegistrationModal = () => {
   const { visible, setVisible } = useRegModal();
+
+  useEffect(() => {
+    if (visible) {
+      document.body.style.overflowY = "hidden";
+    }
+    return () => {
+      document.body.style.overflowY = "auto";
+    };
+  }, [visible]);
 
   return visible
     ? createPortal(

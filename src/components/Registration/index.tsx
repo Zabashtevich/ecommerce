@@ -1,6 +1,7 @@
 import { FC } from "react";
 
 import {
+  Window,
   Overlay,
   Container,
   Close,
@@ -26,9 +27,9 @@ interface IRegistration {
 
 const Registration: FC<IRegistration> = ({ setVisible }) => {
   return (
-    <>
+    <Container>
       <Overlay onClick={() => setVisible(false)} />
-      <Container>
+      <Window>
         <Close onClick={() => setVisible(false)} />
         <Header>
           <Title>Регистрация</Title>
@@ -59,8 +60,8 @@ const Registration: FC<IRegistration> = ({ setVisible }) => {
           <Or>или</Or>
           <Login>ВОЙТИ</Login>
         </Footer>
-      </Container>
-    </>
+      </Window>
+    </Container>
   );
 };
 

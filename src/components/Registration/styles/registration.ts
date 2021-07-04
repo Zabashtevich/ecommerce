@@ -1,40 +1,187 @@
 import styled from "styled-components";
 
-export const Overlay = styled.div``;
-
 export const Container = styled.div`
   justify-content: center;
-  flex-direction: column;
+  box-sizing: border-box;
+  align-items: center;
+  padding: 0 1rem;
+  position: fixed;
   display: flex;
-  width: 366px;
+  z-index: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  top: 0;
+`;
+
+export const Window = styled.div`
+  background-color: white;
+  justify-content: center;
+  flex-direction: column;
+  box-sizing: border-box;
+  border-radius: 20px;
+  max-width: 400px;
+  z-index: 1000;
+  padding: 30px;
+  display: flex;
+  color: black;
+
+  @media (max-width: 400px) {
+    max-width: 320px;
+  }
+`;
+
+export const Overlay = styled.div`
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  top: 0;
 `;
 
 export const Close = styled.div``;
 
 export const Header = styled.div``;
 
-export const Title = styled.div``;
+export const Title = styled.span`
+  margin-bottom: 10px;
+  align-items: center;
+  position: relative;
+  font-size: 40px;
+  display: flex;
+  width: 100%;
 
-export const Form = styled.div``;
+  ::after {
+    margin-top: 2px;
+    background: #000;
+    display: block;
+    content: "";
+    height: 1px;
+    flex: 1;
+  }
 
-export const Row = styled.div``;
+  ::before {
+    margin-top: 2px;
+    background: #000;
+    display: block;
+    content: "";
+    height: 1px;
+    flex: 1;
+  }
+`;
 
-export const Label = styled.div``;
+export const Form = styled.form`
+  flex-direction: column;
+  display: flex;
+`;
 
-export const Input = styled.div``;
+export const Row = styled.div`
+  margin-bottom: 15px;
 
-export const Submit = styled.div``;
+  :last-of-type {
+    margin-bottom: 0;
+  }
+`;
+
+export const Label = styled.label`
+  text-transform: uppercase;
+  line-height: 25px;
+  font-size: 15px;
+  color: #818d92;
+`;
+
+export const Input = styled.input`
+  font-family: "Futura", sans-serif;
+  border: 1px solid transparent;
+  box-sizing: border-box;
+  border-radius: 1000px;
+  background: #f4f6f8;
+  padding: 0 15px;
+  font-size: 18px;
+  outline: none;
+  height: 36px;
+  width: 100%;
+
+  :focus {
+    border: 1px solid rgba(0, 0, 0, 0.3);
+  }
+`;
+
+export const Submit = styled.button`
+  text-transform: uppercase;
+  justify-content: center;
+  border-radius: 20px;
+  align-items: center;
+  letter-spacing: 2px;
+  position: relative;
+  align-self: center;
+  margin-top: 30px;
+  background: #000;
+  font-size: 15px;
+  display: flex;
+  border: none;
+  width: 270px;
+  height: 40px;
+  color: #fff;
+`;
 
 export const Arrow = styled.div``;
 
-export const Footer = styled.div``;
+export const Footer = styled.div`
+  flex-direction: column;
+  align-items: center;
+  margin-top: 15px;
+  display: flex;
+`;
 
-export const Subtitle = styled.div``;
+export const Subtitle = styled.span`
+  font-size: 15px;
+  color: #818d92;
+`;
 
 export const SocialList = styled.div``;
 
 export const Google = styled.div``;
 
-export const Or = styled.div``;
+export const Or = styled.span`
+  position: relative;
+  margin-top: 25px;
+  font-size: 17px;
+  color: #818d92;
 
-export const Login = styled.div``;
+  ::after {
+    transform: translate(10%, -50%);
+    background: #818d92;
+    position: absolute;
+    content: "";
+    height: 1px;
+    width: 12px;
+    left: 100%;
+    top: 50%;
+  }
+
+  ::before {
+    transform: translate(-10%, -50%);
+    background: #818d92;
+    position: absolute;
+    content: "";
+    height: 1px;
+    width: 12px;
+    right: 100%;
+    top: 50%;
+  }
+`;
+
+export const Login = styled.button`
+  background-color: transparent;
+  text-transform: uppercase;
+  margin-top: 25px;
+  font-size: 15px;
+  cursor: pointer;
+  padding: none;
+  border: none;
+
+  :hover {
+    text-decoration: underline;
+  }
+`;
