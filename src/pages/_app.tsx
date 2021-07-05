@@ -5,16 +5,20 @@ import "normalize.css";
 import { GlobalStyles } from "@src/theme/global-styles";
 import theme from "../theme/index";
 
-import RegModalContextProvider from "@src/contexts/signup-modal/context";
-import { SignupModal } from "../features";
+import SignupContextProvider from "@src/contexts/signup-modal/context";
+import { SignupModal, LoginModal } from "../features";
+import LoginContextProvider from "../contexts/login-context/context";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ThemeProvider theme={theme}>
-      <RegModalContextProvider>
-        <Component {...pageProps} />
-        <SignupModal />
-      </RegModalContextProvider>
+      <SignupContextProvider>
+        <LoginContextProvider>
+          <Component {...pageProps} />
+          <LoginModal />
+          <SignupModal />
+        </LoginContextProvider>
+      </SignupContextProvider>
       <GlobalStyles />
     </ThemeProvider>
   );

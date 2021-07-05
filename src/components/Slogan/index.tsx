@@ -1,10 +1,10 @@
 import { FC } from "react";
 
 import { Container, Subtitle, Selected } from "./styles/slogan";
-import useRegModal from "../../contexts/signup-modal/index";
+import { useLoginModal } from "../../contexts";
 
 const Slogan: FC = () => {
-  const { setVisible } = useRegModal();
+  const { setVisible } = useLoginModal();
 
   return (
     <Container onClick={() => setVisible(true)}>
