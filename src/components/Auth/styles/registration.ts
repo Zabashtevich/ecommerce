@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const Container = styled.div`
   justify-content: center;
@@ -14,7 +14,11 @@ export const Container = styled.div`
   top: 0;
 `;
 
-export const Window = styled.div`
+interface IWindow {
+  type?: string;
+}
+
+export const Window = styled.div<IWindow>`
   background-color: white;
   justify-content: center;
   flex-direction: column;
@@ -25,6 +29,24 @@ export const Window = styled.div`
   padding: 30px;
   display: flex;
   color: black;
+
+  ${({ type }) =>
+    type &&
+    css`
+      position: absolute;
+      right: 4vw;
+      top: 190px;
+
+      ::after {
+        border-right: 20px solid transparent;
+        right: 25%;
+        border-left: 20px solid transparent;
+        border-bottom: 20px solid white;
+        position: absolute;
+        bottom: 100%;
+        content: "";
+      }
+    `};
 
   @media (max-width: 400px) {
     max-width: 320px;

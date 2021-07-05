@@ -4,7 +4,6 @@ import {
   Container,
   Overlay,
   Window,
-  Title,
   Form,
   Row,
   Label,
@@ -26,8 +25,7 @@ const Login: FC<ILogin> = ({ setVisible }) => {
   return (
     <Container>
       <Overlay onClick={() => setVisible(false)} />
-      <Window>
-        <Title>Регистрация</Title>
+      <Window type="login">
         <Form>
           <Row>
             <Label>ЭЛ.ПОЧТА</Label>
@@ -37,20 +35,16 @@ const Login: FC<ILogin> = ({ setVisible }) => {
             <Label>ПАРОЛЬ</Label>
             <Input />
           </Row>
-          <Row>
-            <Label>ПОДТВЕРДИТЕ ПАРОЛЬ</Label>
-            <Input />
-          </Row>
-          <Submit>ЗАРЕГИСТРИРОВАТЬСЯ</Submit>
+          <Submit>ВОЙТИ</Submit>
         </Form>
         <Footer>
-          <Subtitle>Зарегистрироваться через:</Subtitle>
+          <Subtitle>Войти через:</Subtitle>
           <SocialList>
             <Social src="/api-logo/vk.svg" />
             <Social src="/api-logo/google.svg" />
           </SocialList>
           <Or>или</Or>
-          <Redirect>ВОЙТИ</Redirect>
+          <Redirect>ЗАРЕГИСТРИРОВАТЬСЯ</Redirect>
         </Footer>
       </Window>
     </Container>

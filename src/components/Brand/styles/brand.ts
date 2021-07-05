@@ -2,10 +2,12 @@ import styled from "styled-components";
 
 export const Container = styled.section`
   justify-content: center;
+  align-items: center;
   position: relative;
   display: flex;
   z-index: 1000;
   width: 100%;
+  margin: 0;
 
   &::before {
     background-color: white;
@@ -26,11 +28,28 @@ export const Container = styled.section`
     bottom: 0;
     right: 0;
   }
+
+  @media (max-width: 1024px) {
+    justify-content: flex-start;
+    ::after {
+      display: none;
+    }
+
+    ::before {
+      display: none;
+    }
+  }
 `;
 
 export const LinkWrapper = styled.a``;
 
 export const Logo = styled.img`
+  object-fit: cover;
   margin-top: 2rem;
   display: flex;
+
+  @media (max-width: 1024px) {
+    margin: 1.5rem;
+    width: 100px;
+  }
 `;

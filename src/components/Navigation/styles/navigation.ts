@@ -8,13 +8,24 @@ export const Container = styled.section`
   align-items: center;
   position: relative;
   margin-top: 1rem;
-  display: flex;
   z-index: 1000;
+  display: flex;
   width: 100%;
+
+  @media (max-width: 1024px) {
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 0;
+  }
 `;
 
 export const Navbar = styled.nav`
   justify-self: center;
+
+  @media (max-width: 1024px) {
+    justify-content: space-between;
+    display: none;
+  }
 `;
 
 export const NavList = styled.ul`
@@ -57,8 +68,13 @@ export const Buttons = styled.div`
   transform: translateY(-50%);
   position: absolute;
   display: flex;
-  right: 50px;
+  right: 4vw;
   top: 50%;
+
+  @media (max-width: 1024px) {
+    transform: translateY(0);
+    position: relative;
+  }
 `;
 
 export const Wrapper = styled.div`
