@@ -5,3 +5,4 @@ export { default as Wallpaper } from "./Wallpaper";
 export { default as Slogan } from "./Slogan";
 export { default as Signup } from "./Auth/signup";
 export { default as Login } from "./Auth/login";
+export { default as MobileNav } from "./Mobile-nav";

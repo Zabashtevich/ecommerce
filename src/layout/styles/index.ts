@@ -14,7 +14,7 @@ export const Header = styled.header`
     ::after {
       border-bottom: 1px solid #616161;
       position: absolute;
-      z-index: 1000;
+      z-index: 100;
       content: "";
       width: 100%;
       top: 100%;

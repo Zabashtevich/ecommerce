@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 import { FiShoppingCart } from "react-icons/fi";
 import { AiOutlineUser } from "react-icons/ai";
+import { BsList } from "react-icons/bs";
 
 export const Container = styled.section`
   justify-content: center;
@@ -66,6 +67,7 @@ export const NavLink = styled.a`
 
 export const Buttons = styled.div`
   transform: translateY(-50%);
+  align-items: center;
   position: absolute;
   display: flex;
   right: 4vw;
@@ -85,14 +87,39 @@ export const Wrapper = styled.div`
 export const Account = styled(AiOutlineUser)`
   margin-right: 1rem;
   font-size: 1.7rem;
+  cursor: pointer;
+
+  @media (max-width: 1024px) {
+    margin: 0 1.5rem;
+  }
 `;
 
 export const Card = styled(FiShoppingCart)`
   margin-right: 1rem;
   font-size: 1.5rem;
+  cursor: pointer;
+
+  @media (max-width: 1024px) {
+    margin: 0 1.5rem;
+  }
 `;
 
 export const Price = styled.span`
   align-self: flex-end;
   display: flex;
+
+  @media (max-width: 1024px) {
+    display: none;
+  }
+`;
+
+export const Burger = styled(BsList)`
+  font-size: 2rem;
+  margin: 0 1.5rem;
+  cursor: pointer;
+  display: none;
+
+  @media (max-width: 1024px) {
+    display: block;
+  }
 `;
