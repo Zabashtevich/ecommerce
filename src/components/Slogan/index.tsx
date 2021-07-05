@@ -1,7 +1,7 @@
 import { FC } from "react";
 
 import { Container, Subtitle, Selected } from "./styles/slogan";
-import useRegModal from "../../contexts/reg-modal/index";
+import useRegModal from "../../contexts/signup-modal/index";
 
 const Slogan: FC = () => {
   const { setVisible } = useRegModal();

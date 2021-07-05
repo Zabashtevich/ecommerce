@@ -3,17 +3,17 @@ import { useEffect } from "react";
 import gsap from "gsap";
 import { CSSTransition } from "react-transition-group";
 
-import { Registration } from "@src/components";
-import { useRegModal } from "../../contexts";
+import { Signup } from "@src/components";
+import { useSignupModal } from "../../contexts";
 
 if (typeof document !== "undefined") {
   const current: HTMLDivElement = document.createElement("div");
-  current.setAttribute("id", "registration-root");
+  current.setAttribute("id", "signup-root");
   document.body.appendChild(current);
 }
 
-const RegistrationModal = () => {
-  const { visible, setVisible } = useRegModal();
+const SignupModal = () => {
+  const { visible, setVisible } = useSignupModal();
 
   useEffect(() => {
     if (visible) {
@@ -50,10 +50,10 @@ const RegistrationModal = () => {
         gsap.to(target.children[1], { opacity: 0, scale: 0.9, duration: 0.4 });
       }}
     >
-      <Registration setVisible={setVisible} />
+      <Signup setVisible={setVisible} />
     </CSSTransition>,
-    document.getElementById("registration-root") as HTMLDivElement,
+    document.getElementById("signup-root") as HTMLDivElement,
   );
 };
 
-export default RegistrationModal;
+export default SignupModal;

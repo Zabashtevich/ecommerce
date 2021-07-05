@@ -1,1 +1,1 @@
-export { default as useRegModal } from "./reg-modal";
+export { default as useSignupModal } from "./signup-modal";

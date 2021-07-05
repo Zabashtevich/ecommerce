@@ -122,8 +122,6 @@ export const Submit = styled.button`
   color: #fff;
 `;
 
-export const Arrow = styled.div``;
-
 export const Footer = styled.div`
   flex-direction: column;
   align-items: center;
@@ -178,7 +176,7 @@ export const Or = styled.span`
   }
 `;
 
-export const Login = styled.button`
+export const Redirect = styled.button`
   background-color: transparent;
   text-transform: uppercase;
   margin-top: 25px;

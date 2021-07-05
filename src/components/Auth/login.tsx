@@ -1,29 +1,28 @@
 import { FC } from "react";
 
 import {
-  Window,
-  Overlay,
   Container,
+  Overlay,
+  Window,
   Title,
   Form,
   Row,
   Label,
   Input,
   Submit,
-  Arrow,
   Footer,
   Subtitle,
   SocialList,
   Social,
   Or,
-  Login,
+  Redirect,
 } from "./styles/registration";
 
-interface IRegistration {
+interface ILogin {
   setVisible: (arg: boolean) => void;
 }
 
-const Registration: FC<IRegistration> = ({ setVisible }) => {
+const Login: FC<ILogin> = ({ setVisible }) => {
   return (
     <Container>
       <Overlay onClick={() => setVisible(false)} />
@@ -42,10 +41,7 @@ const Registration: FC<IRegistration> = ({ setVisible }) => {
             <Label>ПОДТВЕРДИТЕ ПАРОЛЬ</Label>
             <Input />
           </Row>
-          <Submit>
-            ЗАРЕГИСТРИРОВАТЬСЯ
-            <Arrow />
-          </Submit>
+          <Submit>ЗАРЕГИСТРИРОВАТЬСЯ</Submit>
         </Form>
         <Footer>
           <Subtitle>Зарегистрироваться через:</Subtitle>
@@ -54,11 +50,11 @@ const Registration: FC<IRegistration> = ({ setVisible }) => {
             <Social src="/api-logo/google.svg" />
           </SocialList>
           <Or>или</Or>
-          <Login>ВОЙТИ</Login>
+          <Redirect>ВОЙТИ</Redirect>
         </Footer>
       </Window>
     </Container>
   );
 };
 
-export default Registration;
+export default Login;

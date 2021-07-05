@@ -1,4 +1,4 @@
-export interface IRegModal {
+export interface ISignupModal {
   visible: boolean;
   setVisible: (value: boolean) => void;
 }

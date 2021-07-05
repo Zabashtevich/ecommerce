@@ -1,1 +1,1 @@
-export { default as RegistrationModal } from "./registration-modal";
+export { default as SignupModal } from "./signup-modal";
