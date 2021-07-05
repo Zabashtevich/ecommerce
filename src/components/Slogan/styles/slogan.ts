@@ -12,6 +12,10 @@ export const Container = styled.div`
   display: flex;
   color: #000;
   width: 100%;
+
+  @media (max-width: 400px) {
+    font-size: 16px;
+  }
 `;
 
 export const Selected = styled.span`
@@ -23,4 +27,8 @@ export const Selected = styled.span`
 
 export const Subtitle = styled.span`
   line-height: 45px;
+
+  @media (max-width: 400px) {
+    line-height: 30px;
+  }
 `;

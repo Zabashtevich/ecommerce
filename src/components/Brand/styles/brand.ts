@@ -29,7 +29,7 @@ export const Container = styled.section`
     right: 0;
   }
 
-  @media (max-width: 1024px) {
+  @media (max-width: 1600px) {
     justify-content: flex-start;
     ::after {
       display: none;
@@ -48,7 +48,7 @@ export const Logo = styled.img`
   margin-top: 2rem;
   display: flex;
 
-  @media (max-width: 1024px) {
+  @media (max-width: 1600px) {
     margin: 1.5rem;
     width: 100px;
   }
