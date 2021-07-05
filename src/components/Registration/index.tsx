@@ -4,8 +4,6 @@ import {
   Window,
   Overlay,
   Container,
-  Close,
-  Header,
   Title,
   Form,
   Row,
@@ -30,10 +28,7 @@ const Registration: FC<IRegistration> = ({ setVisible }) => {
     <Container>
       <Overlay onClick={() => setVisible(false)} />
       <Window>
-        <Close onClick={() => setVisible(false)} />
-        <Header>
-          <Title>Регистрация</Title>
-        </Header>
+        <Title>Регистрация</Title>
         <Form>
           <Row>
             <Label>ЭЛ.ПОЧТА</Label>

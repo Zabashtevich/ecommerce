@@ -40,10 +40,6 @@ export const Overlay = styled.div`
   top: 0;
 `;
 
-export const Close = styled.div``;
-
-export const Header = styled.div``;
-
 export const Title = styled.span`
   margin-bottom: 10px;
   align-items: center;
