@@ -13,7 +13,7 @@ export const Container = styled.section`
   display: flex;
   width: 100%;
 
-  @media (max-width: 1024px) {
+  @media (max-width: 1600px) {
     justify-content: flex-end;
     align-items: center;
     margin-top: 0;
@@ -23,7 +23,7 @@ export const Container = styled.section`
 export const Navbar = styled.nav`
   justify-self: center;
 
-  @media (max-width: 1024px) {
+  @media (max-width: 1600px) {
     justify-content: space-between;
     display: none;
   }
@@ -73,9 +73,8 @@ export const Buttons = styled.div`
   right: 4vw;
   top: 50%;
 
-  @media (max-width: 1024px) {
-    transform: translateY(0);
-    position: relative;
+  @media (max-width: 1600px) {
+    right: 5%;
   }
 `;
 
@@ -89,8 +88,8 @@ export const Account = styled(AiOutlineUser)`
   font-size: 1.7rem;
   cursor: pointer;
 
-  @media (max-width: 1024px) {
-    margin: 0 1.5rem;
+  @media (max-width: 1600px) {
+    margin: 0 1rem;
   }
 `;
 
@@ -99,8 +98,8 @@ export const Card = styled(FiShoppingCart)`
   font-size: 1.5rem;
   cursor: pointer;
 
-  @media (max-width: 1024px) {
-    margin: 0 1.5rem;
+  @media (max-width: 1600px) {
+    margin: 0 1rem;
   }
 `;
 
@@ -108,7 +107,7 @@ export const Price = styled.span`
   align-self: flex-end;
   display: flex;
 
-  @media (max-width: 1024px) {
+  @media (max-width: 1600px) {
     display: none;
   }
 `;
@@ -119,7 +118,8 @@ export const Burger = styled(BsList)`
   cursor: pointer;
   display: none;
 
-  @media (max-width: 1024px) {
+  @media (max-width: 1600px) {
+    margin: 0 1rem;
     display: block;
   }
 `;

@@ -37,14 +37,24 @@ export const Window = styled.div<IWindow>`
       right: 4vw;
       top: 190px;
 
+      @media (max-width: 1600px) {
+        right: 9vw;
+        top: 100px;
+      }
+
+      @media (max-width: 400px) {
+        right: auto;
+        top: 100px;
+      }
+
       ::after {
         border-right: 20px solid transparent;
-        right: 25%;
         border-left: 20px solid transparent;
         border-bottom: 20px solid white;
         position: absolute;
         bottom: 100%;
         content: "";
+        right: 25%;
       }
     `};
 
