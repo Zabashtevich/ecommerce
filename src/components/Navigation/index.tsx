@@ -1,7 +1,6 @@
 import { FC } from "react";
 import Link from "next/link";
 import { useState } from "react";
-import { CSSTransition } from "react-transition-group";
 
 import { NavigationCategories } from "@src/fixtures/nav";
 import {
@@ -17,7 +16,7 @@ import {
   Price,
   Burger,
 } from "./styles/navigation";
-import { MobileNav } from "../";
+import { AnimatedMobileNav } from "@src/features";
 
 const Navigation: FC = () => {
   const [mobileNavVisible, setMobileNavVisible] = useState(false);
@@ -45,15 +44,10 @@ const Navigation: FC = () => {
         </Wrapper>
         <Burger onClick={() => setMobileNavVisible(true)} />
       </Buttons>
-      <CSSTransition
-        in={mobileNavVisible}
-        timeout={500}
-        mountOnEnter
-        unmountOnExit
-        appear={true}
-      >
-        <MobileNav setMobileNavVisible={setMobileNavVisible} />
-      </CSSTransition>
+      <AnimatedMobileNav
+        mobileNavVisible={mobileNavVisible}
+        setMobileNavVisible={setMobileNavVisible}
+      />
     </Container>
   );
 };
