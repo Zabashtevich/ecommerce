@@ -15,22 +15,8 @@ const CardModal: FC = () => {
       mountOnEnter
       unmountOnExit
       appear={true}
-      onEntering={(target: HTMLElement) => {
-        gsap.from(target.children[0], {
-          opacity: 0,
-          duration: 0.6,
-        });
-        gsap.from(target.children[1], {
-          ease: "back.inOut(0.6)",
-          opacity: 0,
-          scale: 1.5,
-          duration: 0.6,
-        });
-      }}
-      onExiting={(target: HTMLElement) => {
-        gsap.to(target.children[0], { opacity: 0, duration: 0.4 });
-        gsap.to(target.children[1], { opacity: 0, scale: 0.9, duration: 0.4 });
-      }}
+      onEntering={(target: HTMLElement) => {}}
+      onExiting={(target: HTMLElement) => {}}
     >
       <Card setVisible={setVisible} />
     </CSSTransition>
