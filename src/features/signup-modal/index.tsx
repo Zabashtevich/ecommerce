@@ -1,5 +1,5 @@
 import { createPortal } from "react-dom";
-import { useEffect } from "react";
+import { useEffect, FC } from "react";
 import gsap from "gsap";
 import { CSSTransition } from "react-transition-group";
 
@@ -12,7 +12,7 @@ if (typeof document !== "undefined") {
   document.body.appendChild(current);
 }
 
-const SignupModal = () => {
+const SignupModal: FC = () => {
   const { visible, setVisible } = useSignupModal();
 
   useEffect(() => {

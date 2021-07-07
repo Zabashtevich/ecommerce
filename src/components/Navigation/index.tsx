@@ -16,10 +16,13 @@ import {
   Price,
   Burger,
 } from "./styles/navigation";
-import { AnimatedMobileNav } from "@src/features";
+import { MobileNavModal } from "@src/features";
+import { useLoginModal, useCardModal } from "@src/contexts";
 
 const Navigation: FC = () => {
   const [mobileNavVisible, setMobileNavVisible] = useState(false);
+  const { setVisible: setLoginVisible } = useLoginModal();
+  const { setVisible: setCardVisible } = useCardModal();
 
   return (
     <Container>
@@ -37,14 +40,14 @@ const Navigation: FC = () => {
         </NavList>
       </Navbar>
       <Buttons>
-        <Account />
-        <Wrapper>
+        <Account onClick={() => setLoginVisible(true)} />
+        <Wrapper onClick={() => setCardVisible(true)}>
           <Card />
           <Price>0 RUB</Price>
         </Wrapper>
         <Burger onClick={() => setMobileNavVisible(true)} />
       </Buttons>
-      <AnimatedMobileNav
+      <MobileNavModal
         mobileNavVisible={mobileNavVisible}
         setMobileNavVisible={setMobileNavVisible}
       />

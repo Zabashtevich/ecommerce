@@ -1,3 +1,4 @@
+import { useLoginModal } from "@src/contexts";
 import { FC } from "react";
 
 import {
@@ -23,6 +24,8 @@ interface IRegistration {
 }
 
 const Registration: FC<IRegistration> = ({ setVisible }) => {
+  const { setVisible: setLoginVisible } = useLoginModal();
+
   return (
     <Container>
       <Overlay onClick={() => setVisible(false)} />
@@ -50,7 +53,14 @@ const Registration: FC<IRegistration> = ({ setVisible }) => {
             <Social src="/api-logo/google.svg" />
           </SocialList>
           <Or>или</Or>
-          <Redirect>ВОЙТИ</Redirect>
+          <Redirect
+            onClick={() => {
+              setVisible(false);
+              setLoginVisible(true);
+            }}
+          >
+            ВОЙТИ
+          </Redirect>
         </Footer>
       </Window>
     </Container>

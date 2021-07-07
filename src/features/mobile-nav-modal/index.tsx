@@ -4,12 +4,12 @@ import { FC } from "react";
 import { MobileNav } from "@src/components";
 import gsap from "gsap";
 
-interface IAnimatedMobileNav {
+interface IMobileNavModal {
   mobileNavVisible: boolean;
   setMobileNavVisible: (arg: boolean) => void;
 }
 
-const AnimatedMobileNav: FC<IAnimatedMobileNav> = ({
+const MobileNavModal: FC<IMobileNavModal> = ({
   mobileNavVisible,
   setMobileNavVisible,
 }) => {
@@ -46,4 +46,4 @@ const AnimatedMobileNav: FC<IAnimatedMobileNav> = ({
   );
 };
 
-export default AnimatedMobileNav;
+export default MobileNavModal;

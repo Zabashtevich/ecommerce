@@ -1,5 +1,6 @@
 import { FC } from "react";
 
+import { useSignupModal } from "../../contexts";
 import {
   Container,
   Overlay,
@@ -22,6 +23,8 @@ interface ILogin {
 }
 
 const Login: FC<ILogin> = ({ setVisible }) => {
+  const { setVisible: setSignupVisible } = useSignupModal();
+
   return (
     <Container>
       <Overlay onClick={() => setVisible(false)} />
@@ -44,7 +47,14 @@ const Login: FC<ILogin> = ({ setVisible }) => {
             <Social src="/api-logo/google.svg" />
           </SocialList>
           <Or>или</Or>
-          <Redirect>ЗАРЕГИСТРИРОВАТЬСЯ</Redirect>
+          <Redirect
+            onClick={() => {
+              setVisible(false);
+              setSignupVisible(true);
+            }}
+          >
+            ЗАРЕГИСТРИРОВАТЬСЯ
+          </Redirect>
         </Footer>
       </Window>
     </Container>
