@@ -6,9 +6,9 @@ import { GlobalStyles } from "@src/theme/global-styles";
 import theme from "../theme/index";
 
 import SignupContextProvider from "@src/contexts/signup-modal/context";
-import { SignupModal, LoginModal, CardModal } from "../features";
+import { SignupModal, LoginModal, SidebarModal } from "../features";
 import LoginContextProvider from "../contexts/login-context/context";
-import CardContextProvider from "@src/contexts/card-context/context";
+import CardContextProvider from "@src/contexts/sidebar-context/context";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -17,7 +17,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <LoginContextProvider>
           <CardContextProvider>
             <Component {...pageProps} />
-            <CardModal />
+            <SidebarModal />
             <LoginModal />
             <SignupModal />
           </CardContextProvider>

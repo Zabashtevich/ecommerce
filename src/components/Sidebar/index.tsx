@@ -20,13 +20,13 @@ import {
   DetailsTitle,
   DetailsValue,
   Checkout,
-} from "./styles/card";
+} from "./styles/sidebar";
 
-interface ICard {
+interface ISidebar {
   setVisible: (arg: boolean) => void;
 }
 
-const Card: FC<ICard> = ({ setVisible }) => {
+const Sidebar: FC<ISidebar> = ({ setVisible }) => {
   return (
     <Outer>
       <Overlay onClick={() => setVisible(false)} />
@@ -74,4 +74,4 @@ const Card: FC<ICard> = ({ setVisible }) => {
   );
 };
 
-export default Card;
+export default Sidebar;

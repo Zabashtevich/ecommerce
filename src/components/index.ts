@@ -6,4 +6,4 @@ export { default as Slogan } from "./Slogan";
 export { default as Signup } from "./Auth/signup";
 export { default as Login } from "./Auth/login";
 export { default as MobileNav } from "./Mobile-nav";
-export { default as Card } from "./Card";
+export { default as Sidebar } from "./Sidebar";
