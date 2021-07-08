@@ -2,7 +2,7 @@ import { FC } from "react";
 import { CSSTransition } from "react-transition-group";
 import gsap from "gsap";
 
-import { Sidebar } from "@comps";
+import { Purchases, Sidebar } from "@comps";
 import { useSidebarModal } from "../../contexts";
 
 const SidebarModal: FC = () => {
@@ -32,7 +32,11 @@ const SidebarModal: FC = () => {
         });
       }}
     >
-      <Sidebar setVisible={setVisible} />
+      <Sidebar
+        setVisible={setVisible}
+        renderItem={(item: any) => <Purchases item={item} />}
+        items={[1, 2, 3, 4]}
+      />
     </CSSTransition>
   );
 };

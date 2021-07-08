@@ -40,6 +40,8 @@ export const Continue = styled.button`
   justify-content: center;
   align-items: center;
   position: relative;
+  flex-basis: 110px;
+  flex-shrink: 0;
   cursor: pointer;
   height: 110px;
   border: none;
@@ -55,7 +57,7 @@ export const Continue = styled.button`
   }
 
   @media (max-width: 1600px) {
-    height: 85px;
+    flex-basis: 85px;
 
     ::after {
       height: 2px;
@@ -74,16 +76,28 @@ export const Subtitle = styled.span`
 
 export const Header = styled.header`
   border-bottom: 2px solid rgba(0, 0, 0, 1);
+  justify-content: center;
+  flex-direction: column;
   align-items: center;
   display: flex;
-  height: 150px;
+`;
+
+export const List = styled.ul`
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+  display: flex;
+  padding: 0;
+  width: 100%;
 `;
 
 export const Title = styled.span`
+  box-sizing: border-box;
   align-items: center;
   padding: 0 1rem;
   font-size: 38px;
   display: flex;
+  height: 108px;
   width: 100%;
 
   ::after {

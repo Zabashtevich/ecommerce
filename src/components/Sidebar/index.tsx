@@ -7,6 +7,7 @@ import {
   Arrow,
   Subtitle,
   Header,
+  List,
   Title,
   Footer,
   Content,
@@ -24,9 +25,11 @@ import {
 
 interface ISidebar {
   setVisible: (arg: boolean) => void;
+  renderItem: (item: any) => JSX.Element;
+  items: [1, 2, 3, 4];
 }
 
-const Sidebar: FC<ISidebar> = ({ setVisible }) => {
+const Sidebar: FC<ISidebar> = ({ setVisible, items, renderItem }) => {
   return (
     <Outer>
       <Overlay onClick={() => setVisible(false)} />
@@ -37,6 +40,7 @@ const Sidebar: FC<ISidebar> = ({ setVisible }) => {
         </Continue>
         <Header>
           <Title>Мои покупки</Title>
+          <List>{items.map(renderItem)}</List>
         </Header>
 
         <Footer>
