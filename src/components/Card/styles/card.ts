@@ -1,8 +1,8 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 import { BsChevronLeft } from "react-icons/bs";
 
-export const Inner = styled.div`
+export const Outer = styled.div`
   justify-content: flex-end;
   position: fixed;
   display: flex;
@@ -74,22 +74,118 @@ export const Title = styled.span`
   }
 `;
 
-export const PromoContainer = styled.div``;
+export const Footer = styled.div`
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+  display: flex;
+`;
 
-export const PromoForm = styled.div``;
+export const Content = styled.div`
+  flex-direction: column;
+  align-items: center;
+  display: flex;
+  width: 305px;
+`;
 
-export const Input = styled.div``;
+export const Promocode = styled.div`
+  border-bottom: 2px solid rgb(235, 238, 241);
+  flex-direction: column;
+  padding-bottom: 33px;
+  margin-bottom: 33px;
+  align-items: center;
+  display: flex;
+`;
 
-export const Confirm = styled.div``;
+export const PromocodeTitle = styled.span`
+  color: rgb(129, 141, 146);
+  align-self: flex-start;
+  margin-bottom: 9px;
+  font-weight: 400;
+  font-size: 13px;
+`;
 
-export const Description = styled.div``;
+export const PromocodeInner = styled.form`
+  font-family: "Futura", sans-serif;
+  align-items: center;
+  display: flex;
+  height: 36px;
+  width: 100%;
+`;
 
-export const Row = styled.div``;
+export const Input = styled.input`
+  background-color: rgb(244, 246, 248);
+  box-sizing: border-box;
+  border-radius: 100px;
+  padding-right: 51px;
+  padding-left: 15px;
+  font-size: 18px;
+  outline: none;
+  border: none;
+  height: 100%;
+  width: 204px;
+`;
 
-export const RowTitle = styled.div``;
+export const Apply = styled.button`
+  background-color: rgb(0, 0, 0);
+  border-radius: 100px;
+  letter-spacing: 1px;
+  margin-left: -36px;
+  font-size: 13px;
+  border: none;
+  height: 100%;
+  color: white;
+  width: 137px;
+`;
 
-export const RowValue = styled.div``;
+export const Details = styled.div`
+  flex-direction: column;
+  display: flex;
+  width: 100%;
+`;
 
-export const Amount = styled.div``;
+export const Row = styled.div`
+  justify-content: space-between;
+  align-items: center;
+  line-height: 22.5px;
+  display: flex;
 
-export const Checkout = styled.div``;
+  :last-of-type {
+    margin-top: 25px;
+  }
+`;
+
+export const DetailsTitle = styled.span`
+  color: rgb(129, 141, 146);
+  font-size: 13px;
+`;
+
+interface IDetailsvalue {
+  totalPrice?: boolean;
+}
+
+export const DetailsValue = styled.span<IDetailsvalue>`
+  color: rgb(0, 0, 0);
+  font-weight: 600;
+
+  ${({ totalPrice }) =>
+    totalPrice &&
+    css`
+      font-size: 25px;
+    `};
+`;
+
+export const Checkout = styled.button`
+  background-color: rgb(0, 0, 0);
+  justify-content: center;
+  border-radius: 100px;
+  letter-spacing: 2px;
+  align-items: center;
+  margin-top: 45px;
+  font-size: 15px;
+  display: flex;
+  width: 277px;
+  height: 50px;
+  color: white;
+  border: none;
+`;

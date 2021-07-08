@@ -1,6 +1,6 @@
 import { FC } from "react";
 import {
-  Inner,
+  Outer,
   Overlay,
   Container,
   Continue,
@@ -8,15 +8,17 @@ import {
   Subtitle,
   Header,
   Title,
-  PromoContainer,
-  PromoForm,
+  Footer,
+  Content,
+  Promocode,
+  PromocodeTitle,
+  PromocodeInner,
   Input,
-  Confirm,
-  Description,
+  Apply,
+  Details,
   Row,
-  RowTitle,
-  RowValue,
-  Amount,
+  DetailsTitle,
+  DetailsValue,
   Checkout,
 } from "./styles/card";
 
@@ -26,7 +28,7 @@ interface ICard {
 
 const Card: FC<ICard> = ({ setVisible }) => {
   return (
-    <Inner>
+    <Outer>
       <Overlay onClick={() => setVisible(false)} />
       <Container>
         <Continue onClick={() => setVisible(false)}>
@@ -36,31 +38,39 @@ const Card: FC<ICard> = ({ setVisible }) => {
         <Header>
           <Title>Мои покупки</Title>
         </Header>
-        <PromoContainer>
-          <Subtitle></Subtitle>
-          <PromoForm>
-            <Input />
-            <Confirm />
-          </PromoForm>
-        </PromoContainer>
-        <Description>
-          <Row>
-            <RowTitle>ОБЩАЯ СТОИМОСТЬ:</RowTitle>
-            <RowValue>0 RUB</RowValue>
-          </Row>
-          <Row>
-            <RowTitle>СТОИМОСТЬ ДОСТАВКИ:</RowTitle>
-            <RowValue>0 RUB</RowValue>
-          </Row>
-          <Row>
-            <RowTitle></RowTitle>
-            <Amount></Amount>
-          </Row>
 
-          <Checkout />
-        </Description>
+        <Footer>
+          <Content>
+            <Promocode>
+              <PromocodeTitle>ПРОМОКОД</PromocodeTitle>
+              <PromocodeInner>
+                <Input />
+                <Apply>ПРИМЕНИТЬ</Apply>
+              </PromocodeInner>
+            </Promocode>
+
+            <Details>
+              <Row>
+                <DetailsTitle>ОБЩАЯ СТОИМОСТЬ:</DetailsTitle>
+                <DetailsValue>0 RUB</DetailsValue>
+              </Row>
+
+              <Row>
+                <DetailsTitle>СТОИМОСТЬ ДОСТАВКИ:</DetailsTitle>
+                <DetailsValue>0 RUB</DetailsValue>
+              </Row>
+
+              <Row>
+                <DetailsTitle>ИТОГО:</DetailsTitle>
+                <DetailsValue totalPrice={true}>0 RUB</DetailsValue>
+              </Row>
+            </Details>
+
+            <Checkout>ОФОРМИТЬ ЗАКАЗ</Checkout>
+          </Content>
+        </Footer>
       </Container>
-    </Inner>
+    </Outer>
   );
 };
 
