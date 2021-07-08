@@ -17,12 +17,12 @@ import {
   Burger,
 } from "./styles/navigation";
 import { MobileNavModal } from "@src/features";
-import { useLoginModal, useCardModal } from "@src/contexts";
+import { useLoginModal, useSidebarModal } from "@src/contexts";
 
 const Navigation: FC = () => {
   const [mobileNavVisible, setMobileNavVisible] = useState(false);
   const { setVisible: setLoginVisible } = useLoginModal();
-  const { setVisible: setCardVisible } = useCardModal();
+  const { setVisible: setCardVisible } = useSidebarModal();
 
   return (
     <Container>

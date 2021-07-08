@@ -29,17 +29,38 @@ export const Container = styled.aside`
   height: 100vh;
   width: 380px;
   color: #000;
+
+  @media (max-width: 420px) {
+    width: 100%;
+  }
 `;
 
 export const Continue = styled.button`
   background-color: white;
   justify-content: center;
   align-items: center;
+  position: relative;
   cursor: pointer;
   height: 110px;
   border: none;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   display: flex;
+
+  ::after {
+    background-color: rgba(0, 0, 0, 0.2);
+    position: absolute;
+    content: "";
+    height: 5px;
+    width: 100%;
+    bottom: 0;
+  }
+
+  @media (max-width: 1600px) {
+    height: 85px;
+
+    ::after {
+      height: 2px;
+    }
+  }
 `;
 
 export const Arrow = styled(BsChevronLeft)`
@@ -74,7 +95,7 @@ export const Title = styled.span`
   }
 `;
 
-export const Footer = styled.div`
+export const Footer = styled.footer`
   flex-direction: column;
   align-items: center;
   margin-top: 30px;
@@ -83,9 +104,15 @@ export const Footer = styled.div`
 
 export const Content = styled.div`
   flex-direction: column;
+  box-sizing: border-box;
   align-items: center;
   display: flex;
   width: 305px;
+
+  @media (max-width: 400px) {
+    padding: 0 1rem;
+    width: 100%;
+  }
 `;
 
 export const Promocode = styled.div`
@@ -124,6 +151,10 @@ export const Input = styled.input`
   border: none;
   height: 100%;
   width: 204px;
+
+  @media (max-width: 400px) {
+    width: 100%;
+  }
 `;
 
 export const Apply = styled.button`
