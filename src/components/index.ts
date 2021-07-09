@@ -8,3 +8,5 @@ export { default as Login } from "./Auth/login";
 export { default as MobileNav } from "./Mobile-nav";
 export { default as Sidebar } from "./Sidebar";
 export { default as Purchases } from "./Purchases";
+export { default as Card } from "./Card";
+export { default as CardList } from "./Card-list";

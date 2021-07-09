@@ -63,6 +63,7 @@ export const Size = styled.button`
   background-color: transparent;
   align-items: center;
   font-size: 13px;
+  cursor: pointer;
   display: flex;
   border: none;
   margin: 3px;
@@ -79,10 +80,12 @@ export const Amount = styled.span`
 
 export const Plus = styled(BsPlus)`
   margin-left: 12px;
+  cursor: pointer;
 `;
 
 export const Minus = styled(BsDash)`
   margin-left: 12px;
+  cursor: pointer;
 `;
 
 export const Price = styled.span`

@@ -22,13 +22,20 @@ export const Overlay = styled.div`
 `;
 
 export const Container = styled.aside`
-  flex-direction: column;
   background-color: white;
+  flex-direction: column;
+  padding-bottom: 120px;
+  box-sizing: border-box;
+  overflow: overlay;
+  min-height: 100vh;
   display: flex;
   z-index: 2000;
-  height: 100vh;
   width: 380px;
   color: #000;
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
 
   @media (max-width: 420px) {
     width: 100%;
