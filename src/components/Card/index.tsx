@@ -1,5 +1,6 @@
 import { FC } from "react";
 
+import { IProduct } from "../../types/product";
 import {
   Container,
   Product,
@@ -10,18 +11,22 @@ import {
   Name,
 } from "./styles/card";
 
-const Card: FC = () => {
+interface ICard {
+  item: IProduct;
+}
+
+const Card: FC<ICard> = ({ item }) => {
   return (
     <Container>
       <Product>
-        <Thumbnail />
+        <Thumbnail src={item.view.main} />
         <Inner>
-          <Price>2 550 RUB</Price>
+          <Price>{item.price.toLocaleString("ru")} RUB</Price>
         </Inner>
       </Product>
 
       <Button>
-        <Name></Name>
+        <Name>{item.name}</Name>
       </Button>
     </Container>
   );
