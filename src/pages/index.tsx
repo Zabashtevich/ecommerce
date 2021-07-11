@@ -1,7 +1,6 @@
 import Head from "next/head";
 
 import { Wallpaper, Slogan } from "@src/components";
-import AppLayout from "@src/layout";
 
 export default function Home() {
   return (
@@ -9,10 +8,8 @@ export default function Home() {
       <Head>
         <title>Joly Bell</title>
       </Head>
-      <AppLayout>
-        <Wallpaper />
-        <Slogan />
-      </AppLayout>
+      <Wallpaper />
+      <Slogan />
     </>
   );
 }
