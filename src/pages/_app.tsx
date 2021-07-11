@@ -9,6 +9,7 @@ import SignupContextProvider from "@src/contexts/signup-modal/context";
 import { SignupModal, LoginModal, SidebarModal } from "../features";
 import LoginContextProvider from "../contexts/login-context/context";
 import CardContextProvider from "@src/contexts/sidebar-context/context";
+import AppLayout from "../layout/index";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -16,10 +17,12 @@ function MyApp({ Component, pageProps }: AppProps) {
       <SignupContextProvider>
         <LoginContextProvider>
           <CardContextProvider>
-            <Component {...pageProps} />
-            <SidebarModal />
-            <LoginModal />
-            <SignupModal />
+            <AppLayout>
+              <Component {...pageProps} />
+              <SidebarModal />
+              <LoginModal />
+              <SignupModal />
+            </AppLayout>
           </CardContextProvider>
         </LoginContextProvider>
       </SignupContextProvider>
