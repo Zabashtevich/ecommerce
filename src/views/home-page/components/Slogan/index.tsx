@@ -1,7 +1,7 @@
 import { FC } from "react";
 
 import { Container, Subtitle, Selected } from "./styles/slogan";
-import { useLoginModal } from "../../contexts";
+import { useLoginModal } from "../../../../contexts";
 
 const Slogan: FC = () => {
   const { setVisible } = useLoginModal();
