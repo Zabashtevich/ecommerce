@@ -6,6 +6,7 @@ import {
   Product,
   Thumbnail,
   Inner,
+  Details,
   Price,
   Button,
   Name,
@@ -23,6 +24,7 @@ const Card: FC<ICard> = ({ item }) => {
         <Inner>
           <Price>{item.price.toLocaleString("ru")} RUB</Price>
         </Inner>
+        <Details>ПОДРОБНЕЕ</Details>
       </Product>
 
       <Button>
