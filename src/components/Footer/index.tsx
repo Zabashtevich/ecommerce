@@ -13,7 +13,7 @@ import {
 const Footer: FC = () => {
   return (
     <Container>
-      <Logo src="logo.png" />
+      <Logo src="/logo.png" />
       <Row>
         <Subtitle>ВРЕМЯ РАБОТЫ СЛУЖБЫ ПОДДЕРЖКИ:</Subtitle>
         <Subvalue>ПН-ПТ: 9:00 - 21:00</Subvalue>
