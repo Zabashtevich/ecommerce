@@ -5,7 +5,8 @@ import {
   Description,
   Wrapper,
   ModalButton,
-  Inner,
+  SizesInner,
+  Size,
   AmountInner,
   AmountMinus,
   AmountInput,
@@ -38,7 +39,17 @@ export default function Info() {
         <ModalButton>УХОД ЗА ВЕЩЬЮ</ModalButton>
       </Wrapper>
 
-      <Inner>
+      <Wrapper>
+        <SizesInner>
+          <Size>XS</Size>
+          <Size>S</Size>
+          <Size>M</Size>
+          <Size>L</Size>
+          <Size>XL</Size>
+        </SizesInner>
+      </Wrapper>
+
+      <Wrapper>
         <AmountInner>
           <AmountMinus>-</AmountMinus>
           <AmountInput value="1" />
@@ -46,7 +57,7 @@ export default function Info() {
         </AmountInner>
 
         <AddButton>ДОБАВИТЬ В КОРЗИНУ</AddButton>
-      </Inner>
+      </Wrapper>
     </Container>
   );
 }

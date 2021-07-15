@@ -8,13 +8,13 @@ export const Container = styled.div`
   align-items: center;
   position: relative;
   display: flex;
-  flex: 1 0 50%;
+  flex: 1;
 `;
 
 export const Viewport = styled.div`
   position: relative;
-  height: 500px;
-  width: 440px;
+  height: 640px;
+  width: 580px;
 `;
 
 export const Slide = styled.img`

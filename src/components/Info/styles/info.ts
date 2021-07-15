@@ -3,7 +3,9 @@ import styled from "styled-components";
 export const Container = styled.div`
   flex-direction: column;
   align-items: center;
+  margin-left: 5.5%;
   display: flex;
+  width: 43.5%;
 `;
 
 export const Price = styled.span`
@@ -44,17 +46,46 @@ export const Description = styled.div`
     line-height: 27px;
     margin: 0 0 20px;
     font-size: 16px;
-  }
 
-  :last-child {
-    margin: 0;
+    :last-of-type {
+      margin: 0;
+    }
   }
 `;
 
 export const Wrapper = styled.div`
   align-self: flex-start;
-  margin-top: 15px;
+  margin-top: 30px;
   display: flex;
+`;
+
+export const SizesInner = styled.div`
+  align-items: center;
+  position: relative;
+  margin: 30px 0;
+  display: flex;
+
+  ::after {
+    transform: translateY(-60%);
+    content: "Количество:";
+    letter-spacing: 1px;
+    position: absolute;
+    font-size: 14px;
+    color: #636573;
+    bottom: 100%;
+  }
+`;
+
+export const Size = styled.button`
+  border: 1px solid rgb(71, 72, 82);
+  background-color: rgb(71, 72, 82);
+  color: rgb(121, 123, 140);
+  margin-right: 0.5rem;
+  border-radius: 50%;
+  font-weight: 600;
+  font-size: 18px;
+  height: 38px;
+  width: 38px;
 `;
 
 export const ModalButton = styled.button`
@@ -70,13 +101,6 @@ export const ModalButton = styled.button`
   :last-of-type {
     margin-left: 20px;
   }
-`;
-
-export const Inner = styled.div`
-  align-self: flex-start;
-  padding-top: 20px;
-  margin-top: 30px;
-  display: flex;
 `;
 
 export const AmountInner = styled.div`
