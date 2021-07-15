@@ -29,10 +29,17 @@ export const Slide = styled.img`
 export const PrevButton = styled.button`
   background-color: transparent;
   transform: translateY(-50%);
+  border: 2px solid white;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
   position: absolute;
-  font-size: 2rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  height: 51px;
   color: white;
-  border: 0;
+  width: 51px;
   top: 50%;
   left: 0;
 `;
@@ -42,22 +49,33 @@ export const Left = styled(BsFillCaretLeftFill)``;
 export const NextButton = styled.button`
   background-color: transparent;
   transform: translateY(-50%);
+  border: 2px solid white;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
   position: absolute;
-  font-size: 2rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  height: 51px;
   color: white;
-  border: 0;
+  width: 51px;
   top: 50%;
   right: 0;
 `;
 
 export const Right = styled(BsFillCaretRightFill)``;
 
-export const Pagination = styled.div``;
+export const Pagination = styled.div`
+  margin-top: 2rem;
+  display: flex;
+`;
 
 export const Dot = styled.div`
   border: 2px solid white;
   position: relative;
   border-radius: 50%;
+  margin-right: 1rem;
   height: 18px;
   width: 18px;
 

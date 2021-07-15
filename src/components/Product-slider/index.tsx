@@ -94,6 +94,7 @@ export default function ProductSlider() {
 
       <Pagination>
         <Dot />
+        <Dot />
       </Pagination>
     </Container>
   );

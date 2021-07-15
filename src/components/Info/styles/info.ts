@@ -67,7 +67,7 @@ export const SizesInner = styled.div`
 
   ::after {
     transform: translateY(-60%);
-    content: "Количество:";
+    content: "Выберите размер:";
     letter-spacing: 1px;
     position: absolute;
     font-size: 14px;

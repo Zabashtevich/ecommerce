@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const Inner = styled.section`
   flex-direction: column;
   align-items: center;
+  padding-top: 25px;
   display: flex;
 `;
 
@@ -14,6 +15,6 @@ export const Title = styled.h2`
 
 export const Container = styled.div`
   max-width: 1500px;
-  margin-top: 75px;
+  margin-top: 50px;
   display: flex;
 `;
