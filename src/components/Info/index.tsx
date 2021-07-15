@@ -1,5 +1,4 @@
 import {
-  Outer,
   Container,
   Price,
   DeliveryInfo,
@@ -16,29 +15,38 @@ import {
 
 export default function Info() {
   return (
-    <Outer>
-      <Container>
-        <Price></Price>
+    <Container>
+      <Price>1 750 RUB</Price>
 
-        <DeliveryInfo></DeliveryInfo>
+      <DeliveryInfo>
+        (Доставка по миру - 550 RUB, по Украине - 50 UAH)
+      </DeliveryInfo>
 
-        <Description></Description>
+      <Description>
+        <p>Тонкая. Легкая. Черная.</p>
+        <p>
+          Футболка линейки B.O.M.J - первая единица контрбрендовой линии одежды.
+          Потрясающие качество в совместительстве с утонченным подходом к
+          деталям, которым не могут похвастаться именитые раздутые фирмы.
+        </p>
+        <p>Ткань сорта пенье</p>
+        <p>Состав: 95% cotton, 5% spandex. Плотность 170 г/м²</p>
+      </Description>
 
-        <Wrapper>
-          <ModalButton></ModalButton>
-          <ModalButton></ModalButton>
-        </Wrapper>
+      <Wrapper>
+        <ModalButton>РАЗМЕРНАЯ СЕТКА</ModalButton>
+        <ModalButton>УХОД ЗА ВЕЩЬЮ</ModalButton>
+      </Wrapper>
 
-        <Inner>
-          <AmountInner>
-            <AmountMinus></AmountMinus>
-            <AmountInput />
-            <AmountPlus></AmountPlus>
-          </AmountInner>
+      <Inner>
+        <AmountInner>
+          <AmountMinus>-</AmountMinus>
+          <AmountInput value="1" />
+          <AmountPlus>+</AmountPlus>
+        </AmountInner>
 
-          <AddButton></AddButton>
-        </Inner>
-      </Container>
-    </Outer>
+        <AddButton>ДОБАВИТЬ В КОРЗИНУ</AddButton>
+      </Inner>
+    </Container>
   );
 }

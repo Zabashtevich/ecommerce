@@ -5,7 +5,7 @@ import { Inner, Title, Container } from "./styles/product-details";
 export default function ProductDetails() {
   return (
     <Inner>
-      <Title></Title>
+      <Title>B.O.M.J Black</Title>
       <Container>
         <ProductSlider />
         <Info />

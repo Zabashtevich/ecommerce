@@ -1,27 +1,148 @@
 import styled from "styled-components";
 
-export const Outer = styled.div``;
+export const Container = styled.div`
+  flex-direction: column;
+  align-items: center;
+  display: flex;
+`;
 
-export const Container = styled.div``;
+export const Price = styled.span`
+  background-color: white;
+  padding: 0.4rem 1.1rem;
+  align-self: flex-start;
+  color: rgb(17, 17, 19);
+  border-radius: 100px;
+  letter-spacing: 1px;
+  line-height: 36px;
+  font-weight: 600;
+  font-size: 24px;
+`;
 
-export const Price = styled.div``;
+export const DeliveryInfo = styled.span`
+  color: rgb(99, 101, 115);
+  align-self: flex-start;
+  letter-spacing: 1px;
+  line-height: 27px;
+  margin-top: 25px;
+  font-size: 18px;
 
-export const DeliveryInfo = styled.div``;
+  ::after {
+    background-color: rgb(71, 72, 82);
+    margin-top: 25px;
+    display: block;
+    width: 100%;
+    content: "";
+    height: 2px;
+  }
+`;
 
-export const Description = styled.div``;
+export const Description = styled.div`
+  margin-top: 20px;
 
-export const Wrapper = styled.div``;
+  p {
+    letter-spacing: 1px;
+    line-height: 27px;
+    margin: 0 0 20px;
+    font-size: 16px;
+  }
 
-export const ModalButton = styled.div``;
+  :last-child {
+    margin: 0;
+  }
+`;
 
-export const Inner = styled.div``;
+export const Wrapper = styled.div`
+  align-self: flex-start;
+  margin-top: 15px;
+  display: flex;
+`;
 
-export const AmountInner = styled.div``;
+export const ModalButton = styled.button`
+  border: 2px solid rgb(71, 72, 82);
+  background-color: transparent;
+  color: rgb(99, 101, 115);
+  border-radius: 100px;
+  letter-spacing: 2px;
+  padding: 0 30px;
+  font-size: 12px;
+  height: 46px;
 
-export const AmountMinus = styled.div``;
+  :last-of-type {
+    margin-left: 20px;
+  }
+`;
 
-export const AmountInput = styled.div``;
+export const Inner = styled.div`
+  align-self: flex-start;
+  padding-top: 20px;
+  margin-top: 30px;
+  display: flex;
+`;
 
-export const AmountPlus = styled.div``;
+export const AmountInner = styled.div`
+  align-items: center;
+  position: relative;
+  display: flex;
 
-export const AddButton = styled.div``;
+  ::after {
+    transform: translateY(-60%);
+    content: "Количество:";
+    letter-spacing: 1px;
+    position: absolute;
+    font-size: 14px;
+    color: #636573;
+    bottom: 100%;
+  }
+`;
+
+export const AmountMinus = styled.button`
+  background-color: transparent;
+  border-radius: 50% 0 0 50%;
+  border: 2px solid #fff;
+  border-right: none;
+  cursor: pointer;
+  font-size: 25px;
+  height: 50px;
+  width: 50px;
+  color: white;
+  padding: 0;
+`;
+
+export const AmountInput = styled.input`
+  box-sizing: border-box;
+  border: 2px solid #fff;
+  text-align: center;
+  background: #fff;
+  border-radius: 0;
+  font-size: 15px;
+  height: 50px;
+  width: 50px;
+  color: #000;
+  padding: 0;
+`;
+
+export const AmountPlus = styled.button`
+  background-color: transparent;
+  border-radius: 0 50% 50% 0;
+  border: 2px solid #fff;
+  border-left: none;
+  cursor: pointer;
+  font-size: 25px;
+  height: 50px;
+  width: 50px;
+  color: white;
+  padding: 0;
+`;
+
+export const AddButton = styled.button`
+  background-color: white;
+  box-sizing: border-box;
+  border-radius: 100px;
+  letter-spacing: 2px;
+  margin-left: 30px;
+  font-size: 14px;
+  padding: 0 2rem;
+  border: none;
+  height: 50px;
+  color: #000;
+`;

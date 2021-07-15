@@ -8,6 +8,7 @@ export const Container = styled.div`
   align-items: center;
   position: relative;
   display: flex;
+  flex: 1 0 50%;
 `;
 
 export const Viewport = styled.div`
