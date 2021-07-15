@@ -14,8 +14,6 @@ import {
   Dot,
 } from "./styles/product-slider";
 
-interface IProductSlider {}
-
 const mainLink =
   "https://jolybell.com/storage/ngm6sm8lya.png?preview=&width=765&height=841";
 

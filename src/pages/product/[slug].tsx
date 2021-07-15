@@ -1,6 +1,7 @@
 import { FC } from "react";
 import Head from "next/head";
-import { ProductSlider } from "@src/components";
+
+import { ProductDetails } from "@src/features";
 
 const ProductPage: FC = () => {
   return (
@@ -8,7 +9,7 @@ const ProductPage: FC = () => {
       <Head>
         <title>123</title>
       </Head>
-      <ProductSlider />
+      <ProductDetails />
     </>
   );
 };
