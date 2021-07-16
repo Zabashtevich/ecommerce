@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const Inner = styled.section`
   flex-direction: column;
+  padding-bottom: 100px;
   align-items: center;
   padding-top: 25px;
   display: flex;

@@ -1,4 +1,4 @@
-import { ProductSlider, Info } from "@src/components";
+import { ProductSlider, Info, Recommendations } from "@src/components";
 
 import { Inner, Title, Container } from "./styles/product-details";
 
@@ -10,6 +10,7 @@ export default function ProductDetails() {
         <ProductSlider />
         <Info />
       </Container>
+      <Recommendations />
     </Inner>
   );
 }

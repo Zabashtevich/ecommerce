@@ -1,3 +1,6 @@
+import gsap from "gsap";
+import { useEffect } from "react";
+
 import {
   Container,
   Title,
@@ -5,6 +8,7 @@ import {
   Button,
   LeftArrow,
   Viewport,
+  Inner,
   Slide,
   Thumbnail,
   Price,
@@ -12,26 +16,54 @@ import {
   RightArrow,
 } from "./styles/recommendations";
 
+const mockedUrl =
+  "https://jolybell.com/storage/tjrqbqb2p8.jpg?preview=&width=101&height=142&quality=100";
+const mockedSlides = [
+  mockedUrl,
+  mockedUrl,
+  mockedUrl,
+  mockedUrl,
+  mockedUrl,
+  mockedUrl,
+  mockedUrl,
+  mockedUrl,
+  mockedUrl,
+];
+
 export default function Recommendations() {
+  useEffect(() => {
+    gsap.set(".slider-inner", { duration: 0 });
+  }, []);
+
   return (
     <Container>
-      <Title></Title>
+      <Title>
+        РЕКОМЕНДУЕМ К <span>ПОКУПКЕ</span>
+      </Title>
       <Slider>
-        <Button>
+        <Button onClick={() => gsap.to(".slider-inner", { x: "+=225" })}>
           <LeftArrow />
         </Button>
 
         <Viewport>
-          {[...Array(10)].map((item) => (
-            <Slide key={item}>
-              <Thumbnail />
-              <Price></Price>
-              <Subtitle></Subtitle>
-            </Slide>
-          ))}
+          <Inner className="slider-inner">
+            {mockedSlides.map((item) => (
+              <Slide key={item}>
+                <Thumbnail src={item} />
+                <Price>300 RUB</Price>
+                <Subtitle>Стикеры Дауны</Subtitle>
+              </Slide>
+            ))}
+          </Inner>
         </Viewport>
 
-        <Button>
+        <Button
+          onClick={() =>
+            gsap.to(".slider-inner", {
+              x: "-=225",
+            })
+          }
+        >
           <RightArrow />
         </Button>
       </Slider>
