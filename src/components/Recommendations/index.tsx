@@ -1,5 +1,5 @@
 import gsap from "gsap";
-import { useEffect } from "react";
+import { useState } from "react";
 
 import {
   Container,
@@ -31,9 +31,9 @@ const mockedSlides = [
 ];
 
 export default function Recommendations() {
-  useEffect(() => {
-    gsap.set(".slider-inner", { duration: 0 });
-  }, []);
+  const [offset, setOffset] = useState(0);
+
+  console.log(offset);
 
   return (
     <Container>
@@ -41,14 +41,17 @@ export default function Recommendations() {
         РЕКОМЕНДУЕМ К <span>ПОКУПКЕ</span>
       </Title>
       <Slider>
-        <Button onClick={() => gsap.to(".slider-inner", { x: "+=225" })}>
+        <Button onClick={() => setOffset((prev) => prev + 1)}>
           <LeftArrow />
         </Button>
 
         <Viewport>
-          <Inner className="slider-inner">
-            {mockedSlides.map((item) => (
-              <Slide key={item}>
+          <Inner
+            animate={{ x: offset * 225 }}
+            transition={{ ease: "anticipate", duration: 1 }}
+          >
+            {mockedSlides.map((item, i) => (
+              <Slide key={item + i}>
                 <Thumbnail src={item} />
                 <Price>300 RUB</Price>
                 <Subtitle>Стикеры Дауны</Subtitle>
@@ -57,13 +60,7 @@ export default function Recommendations() {
           </Inner>
         </Viewport>
 
-        <Button
-          onClick={() =>
-            gsap.to(".slider-inner", {
-              x: "-=225",
-            })
-          }
-        >
+        <Button onClick={() => setOffset((prev) => prev - 1)}>
           <RightArrow />
         </Button>
       </Slider>
