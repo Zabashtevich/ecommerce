@@ -64,22 +64,22 @@ export const Viewport = styled.div`
   margin-top: 30px;
   overflow: hidden;
   height: 225px;
-  width: 1125px;
+  width: 1000px;
 
   @media (max-width: 1300px) {
-    width: 900px;
+    width: 800px;
   }
 
   @media (max-width: 1050px) {
-    width: 675px;
+    width: 600px;
   }
 
   @media (max-width: 800px) {
-    width: 450px;
+    width: 400px;
   }
 
   @media (max-width: 550px) {
-    width: 225px;
+    width: 200px;
   }
 `;
 
@@ -95,7 +95,7 @@ export const Slide = styled.div`
   box-sizing: border-box;
   align-items: center;
   display: flex;
-  width: 225px;
+  width: 200px;
 `;
 
 export const Thumbnail = styled.img``;

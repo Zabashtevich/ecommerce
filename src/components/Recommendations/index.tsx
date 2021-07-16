@@ -47,7 +47,7 @@ export default function Recommendations() {
 
         <Viewport>
           <Inner
-            animate={{ x: offset * 225 }}
+            animate={{ x: offset * 200 }}
             transition={{ ease: "anticipate", duration: 1 }}
           >
             {mockedSlides.map((item, i) => (

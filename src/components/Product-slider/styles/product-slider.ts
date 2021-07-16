@@ -3,18 +3,18 @@ import styled from "styled-components";
 import { BsFillCaretLeftFill, BsFillCaretRightFill } from "react-icons/bs";
 
 export const Container = styled.div`
-  justify-content: center;
   flex-direction: column;
   align-items: center;
   position: relative;
   display: flex;
+  width: 550px;
   flex: 1;
 `;
 
 export const Viewport = styled.div`
   position: relative;
-  height: 640px;
-  width: 580px;
+  height: 650px;
+  width: 100%;
 `;
 
 export const Slide = styled.img`
@@ -22,8 +22,6 @@ export const Slide = styled.img`
   position: absolute;
   height: 100%;
   width: 100%;
-  left: 0;
-  top: 0;
 `;
 
 export const PrevButton = styled.button`
@@ -40,6 +38,7 @@ export const PrevButton = styled.button`
   height: 51px;
   color: white;
   width: 51px;
+  z-index: 300;
   top: 50%;
   left: 0;
 `;
@@ -60,6 +59,7 @@ export const NextButton = styled.button`
   height: 51px;
   color: white;
   width: 51px;
+  z-index: 300;
   top: 50%;
   right: 0;
 `;

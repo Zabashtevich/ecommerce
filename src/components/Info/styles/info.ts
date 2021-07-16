@@ -94,6 +94,7 @@ export const ModalButton = styled.button`
   color: rgb(99, 101, 115);
   border-radius: 100px;
   letter-spacing: 2px;
+  white-space: nowrap;
   padding: 0 30px;
   font-size: 12px;
   height: 46px;

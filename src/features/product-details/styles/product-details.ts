@@ -6,6 +6,10 @@ export const Inner = styled.section`
   align-items: center;
   padding-top: 25px;
   display: flex;
+
+  @media (max-width: 1500px) {
+    padding: 25px 50px 100px;
+  }
 `;
 
 export const Title = styled.h2`
@@ -18,4 +22,9 @@ export const Container = styled.div`
   max-width: 1500px;
   margin-top: 50px;
   display: flex;
+
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
