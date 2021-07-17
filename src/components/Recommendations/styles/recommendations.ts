@@ -11,6 +11,7 @@ export const Container = styled.div`
 `;
 
 export const Title = styled.h4`
+  white-space: nowrap;
   letter-spacing: 2px;
   font-weight: 600;
   font-size: 26px;
@@ -26,7 +27,7 @@ export const Title = styled.h4`
 
   @media (max-width: 550px) {
     padding: 0 0.2rem;
-    font-size: 5.5vw;
+    font-size: 5vw;
 
     span {
       padding: 1.9vw 3.2vw;

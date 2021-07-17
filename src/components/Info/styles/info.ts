@@ -1,17 +1,27 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const Container = styled.div`
+  align-items: flex-start;
   flex-direction: column;
-  align-items: center;
   margin-left: 5.5%;
   display: flex;
   width: 43.5%;
+
+  @media (max-width: 1024px) {
+    align-items: center;
+    margin: 100px 0 0;
+    padding: 0 1rem;
+    width: 90vw;
+  }
+
+  @media (max-width: 600px) {
+    margin-top: 30px;
+  }
 `;
 
 export const Price = styled.span`
   background-color: white;
   padding: 0.4rem 1.1rem;
-  align-self: flex-start;
   color: rgb(17, 17, 19);
   border-radius: 100px;
   letter-spacing: 1px;
@@ -22,7 +32,6 @@ export const Price = styled.span`
 
 export const DeliveryInfo = styled.span`
   color: rgb(99, 101, 115);
-  align-self: flex-start;
   letter-spacing: 1px;
   line-height: 27px;
   margin-top: 25px;
@@ -36,27 +45,61 @@ export const DeliveryInfo = styled.span`
     content: "";
     height: 2px;
   }
+
+  @media (max-width: 1024px) {
+    text-align: center;
+  }
 `;
 
 export const Description = styled.div`
+  flex-direction: column;
   margin-top: 20px;
+  display: flex;
 
   p {
     letter-spacing: 1px;
     line-height: 27px;
     margin: 0 0 20px;
     font-size: 16px;
+    display: flex;
 
     :last-of-type {
       margin: 0;
     }
   }
+
+  @media (max-width: 1024px) {
+    align-items: center;
+
+    p {
+      text-align: center;
+    }
+  }
 `;
 
-export const Wrapper = styled.div`
-  align-self: flex-start;
+interface IWrapper {
+  footerWrapper?: boolean;
+}
+
+export const Wrapper = styled.div<IWrapper>`
   margin-top: 30px;
   display: flex;
+
+  ${({ footerWrapper }) =>
+    footerWrapper &&
+    css`
+      @media (max-width: 1024px) {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px 0;
+      }
+    `};
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px 0;
+  }
 `;
 
 export const SizesInner = styled.div`
@@ -73,6 +116,15 @@ export const SizesInner = styled.div`
     font-size: 14px;
     color: #636573;
     bottom: 100%;
+  }
+
+  @media (max-width: 1024px) {
+    ::after {
+      transform: translate(-50%, -30%);
+      white-space: nowrap;
+      text-align: center;
+      left: 50%;
+    }
   }
 `;
 
@@ -102,6 +154,12 @@ export const ModalButton = styled.button`
   :last-of-type {
     margin-left: 20px;
   }
+
+  @media (max-width: 600px) {
+    :last-of-type {
+      margin: 0;
+    }
+  }
 `;
 
 export const AmountInner = styled.div`
@@ -117,6 +175,14 @@ export const AmountInner = styled.div`
     font-size: 14px;
     color: #636573;
     bottom: 100%;
+  }
+
+  @media (max-width: 1024px) {
+    ::after {
+      transform: translate(-50%, -50%);
+      text-align: center;
+      left: 50%;
+    }
   }
 `;
 
@@ -170,4 +236,8 @@ export const AddButton = styled.button`
   border: none;
   height: 50px;
   color: #000;
+
+  @media (max-width: 1024px) {
+    margin-left: 0;
+  }
 `;

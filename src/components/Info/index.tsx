@@ -49,7 +49,7 @@ export default function Info() {
         </SizesInner>
       </Wrapper>
 
-      <Wrapper>
+      <Wrapper footerWrapper={true}>
         <AmountInner>
           <AmountMinus>-</AmountMinus>
           <AmountInput value="1" />

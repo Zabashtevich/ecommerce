@@ -6,15 +6,32 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
   position: relative;
+  padding: 0 3rem;
   display: flex;
-  width: 550px;
   flex: 1;
 `;
 
 export const Viewport = styled.div`
   position: relative;
-  height: 650px;
+  max-height: 650px;
+  max-width: 550px;
   width: 100%;
+  height: 100%;
+
+  @media (max-width: 1024px) {
+    margin-top: 3rem;
+    height: 500px;
+    width: 400px;
+  }
+
+  @media (max-width: 600px) {
+    height: 40vh;
+    width: 90vw;
+  }
+
+  @media (max-width: 400px) {
+    height: 30vh;
+  }
 `;
 
 export const Slide = styled.img`
@@ -41,6 +58,10 @@ export const PrevButton = styled.button`
   z-index: 300;
   top: 50%;
   left: 0;
+
+  @media (max-width: 600px) {
+    display: none;
+  }
 `;
 
 export const Left = styled(BsFillCaretLeftFill)``;
@@ -62,6 +83,10 @@ export const NextButton = styled.button`
   z-index: 300;
   top: 50%;
   right: 0;
+
+  @media (max-width: 600px) {
+    display: none;
+  }
 `;
 
 export const Right = styled(BsFillCaretRightFill)``;

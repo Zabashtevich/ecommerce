@@ -16,6 +16,14 @@ export const Title = styled.h2`
   letter-spacing: 1px;
   line-height: 57px;
   font-size: 37px;
+
+  @media (max-width: 1024px) {
+    margin: 0;
+  }
+
+  @media (max-width: 600px) {
+    font-size: 6vw;
+  }
 `;
 
 export const Container = styled.div`
@@ -26,5 +34,6 @@ export const Container = styled.div`
   @media (max-width: 1024px) {
     flex-direction: column;
     align-items: center;
+    margin: 0;
   }
 `;

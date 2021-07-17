@@ -29,7 +29,7 @@ export default function ProductSlider() {
   const [list, setList] = useState([{ src: mainLink }]);
 
   function nextSlide() {
-    offset.current = { enter: 300, exit: -300 };
+    offset.current = { enter: 200, exit: -200 };
     if (activeIndex === 1) {
       setSliderSettings({ clicks: clicks + 1, activeIndex: 2 });
       setList([{ src: auxLink }]);
@@ -40,7 +40,7 @@ export default function ProductSlider() {
   }
 
   function prevSlide() {
-    offset.current = { enter: -300, exit: 300 };
+    offset.current = { enter: -200, exit: 200 };
     if (activeIndex === 1) {
       setSliderSettings({ clicks: clicks + 1, activeIndex: 2 });
       setList([{ src: auxLink }]);
