@@ -1,9 +1,15 @@
 import Head from "next/head";
-import { FC } from "react";
 
 import { CardList, Card } from "@src/components";
+import { NextPageContext } from "next";
+import { firebase } from "@src/libs";
+import { IProduct } from "../../interfaces/product";
 
-const CategoryPage: FC = () => {
+interface ICategoryPage {
+  products: IProduct[];
+}
+
+export default function CategoryPage({ products }: ICategoryPage) {
   return (
     <>
       <Head>
@@ -11,40 +17,38 @@ const CategoryPage: FC = () => {
       </Head>
 
       <CardList
-        items={[
-          {
-            name: "Joly shit",
-            price: 3000,
-            view: {
-              main: "https://www.petage.com/wp-content/uploads/2019/09/Depositphotos_74974941_xl-2015-e1569443284386-670x627.jpg",
-            },
-          },
-          {
-            name: "Joly shit",
-            price: 3000,
-            view: {
-              main: "https://www.petage.com/wp-content/uploads/2019/09/Depositphotos_74974941_xl-2015-e1569443284386-670x627.jpg",
-            },
-          },
-          {
-            name: "Joly shit",
-            price: 3000,
-            view: {
-              main: "https://www.petage.com/wp-content/uploads/2019/09/Depositphotos_74974941_xl-2015-e1569443284386-670x627.jpg",
-            },
-          },
-          {
-            name: "Joly shit",
-            price: 3000,
-            view: {
-              main: "https://www.petage.com/wp-content/uploads/2019/09/Depositphotos_74974941_xl-2015-e1569443284386-670x627.jpg",
-            },
-          },
-        ]}
-        renderItem={(item) => <Card item={item} />}
+        items={products}
+        renderItem={(item) => <Card item={item} key={item.id} />}
       />
     </>
   );
-};
+}
 
-export default CategoryPage;
+interface ProductContext extends NextPageContext {
+  query: { slug: string };
+}
+
+export async function getServerSideProps({ query }: ProductContext) {
+  try {
+    const collections = await firebase
+      .firestore()
+      .collection("products")
+      .doc(query.slug)
+      .get();
+
+    const response = collections.data() as { items: IProduct[] };
+
+    return {
+      props: {
+        products: response.items,
+      },
+    };
+  } catch {
+    return {
+      redirect: {
+        permanent: false,
+        destination: "/error",
+      },
+    };
+  }
+}

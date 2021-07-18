@@ -1,10 +1,9 @@
-import { FC } from "react";
 import Head from "next/head";
 
 import { ProductDetails } from "@src/features";
 import { ProductStyles } from "@src/theme/product-styles";
 
-const ProductPage: FC = () => {
+export default function ProductPage() {
   return (
     <>
       <Head>
@@ -14,6 +13,4 @@ const ProductPage: FC = () => {
       <ProductDetails />
     </>
   );
-};
-
-export default ProductPage;
+}

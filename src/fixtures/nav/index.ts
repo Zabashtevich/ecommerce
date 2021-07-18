@@ -9,8 +9,8 @@ export const NavigationCategories: NavigationItem[] = [
   { name: "Кепки", category: "caps" },
   { name: "Шапки", category: "hats" },
   { name: "Поло", category: "polo" },
-  { name: "Рюкзаки", category: "backpacks" },
+  { name: "Рюкзаки", category: "bags" },
   { name: "Сувениры", category: "souvenirs" },
   { name: "Memes", category: "memes" },
-  { name: "FAQ", category: "FAQ" },
+  { name: "FAQ", category: "faq" },
 ];

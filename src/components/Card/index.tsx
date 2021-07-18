@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import { IProduct } from "../../types/product";
+import { IProduct } from "@src/interfaces/product";
 import {
   Container,
   Product,
@@ -20,9 +20,9 @@ const Card: FC<ICard> = ({ item }) => {
   return (
     <Container>
       <Product>
-        <Thumbnail src={item.view.main} />
+        <Thumbnail src={item.images[0]} />
         <Inner>
-          <Price>{item.price.toLocaleString("ru")} RUB</Price>
+          <Price>{Number(item.price).toLocaleString("ru")} RUB</Price>
         </Inner>
         <Details>ПОДРОБНЕЕ</Details>
       </Product>

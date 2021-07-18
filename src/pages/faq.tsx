@@ -32,16 +32,12 @@ export async function getStaticProps() {
         data: response.data(),
       },
     };
-  } catch (error) {
-    if (error) {
-      return {
-        redirect: {
-          permanent: false,
-          destination: "/error",
-        },
-      };
-    }
+  } catch {
+    return {
+      redirect: {
+        permanent: false,
+        destination: "/error",
+      },
+    };
   }
 }
-
-//TODO redirect
