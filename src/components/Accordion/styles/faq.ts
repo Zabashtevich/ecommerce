@@ -2,6 +2,30 @@ import styled from "styled-components";
 
 import { motion } from "framer-motion";
 
+export const Outer = styled.div`
+  box-sizing: border-box;
+  justify-content: center;
+  background-color: white;
+  padding: 120px 0;
+  min-height: 85vh;
+  display: flex;
+  width: 100%;
+
+  @media (max-width: 1550px) {
+    padding: 120px 4rem;
+  }
+
+  @media (max-width: 800px) {
+    padding: 60px 2rem;
+  }
+`;
+
+export const Container = styled.div`
+  max-width: 1500px;
+  width: 100%;
+  color: #000;
+`;
+
 export const Wrapper = styled.div`
   flex-direction: column;
   display: flex;
@@ -30,7 +54,7 @@ export const Header = styled.button`
   }
 `;
 
-export const Container = styled(motion.div)`
+export const Inner = styled(motion.div)`
   flex-direction: column;
   overflow: hidden;
   margin-top: 50px;

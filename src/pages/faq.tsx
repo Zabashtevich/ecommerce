@@ -1,6 +1,6 @@
-import { FAQ } from "@src/features";
 import { firebase } from "@src/libs";
 import { FAQItem } from "../interfaces/fixtures";
+import { Accordion } from "@src/components";
 
 interface IFAQPage {
   data: {
@@ -14,7 +14,7 @@ interface IFAQPage {
 export default function FAQPage({ data }: IFAQPage) {
   return (
     <>
-      <FAQ faqdata={data.data} />
+      <Accordion faqdata={data.data} />
     </>
   );
 }
