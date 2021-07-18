@@ -25,18 +25,20 @@ export default function Accordion({
 }: IAccordion) {
   return (
     <Wrapper>
-      <Header onClick={() => setIsVisible((prev) => !prev)}>{name}</Header>
+      <Header onClick={() => setIsVisible((prev) => !prev)}>
+        {name.toUpperCase()}
+      </Header>
       <AnimatePresence>
         {visible && (
           <Container
             initial={{ height: 0 }}
             animate={{ height: "auto" }}
             exit={{ height: 0 }}
-            transition={{ duration: 2 }}
+            transition={{ duration: 1, ease: "easeInOut" }}
           >
             {items.map(({ question, answer }) => (
               <Row key={question}>
-                <Question>{question.toUpperCase()}</Question>
+                <Question>{question}</Question>
                 <Answer>{answer}</Answer>
               </Row>
             ))}

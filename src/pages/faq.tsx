@@ -3,13 +3,18 @@ import { firebase } from "@src/libs";
 import { FAQItem } from "../interfaces/fixtures";
 
 interface IFAQPage {
-  data: { items: FAQItem[] };
+  data: {
+    data: {
+      name: string;
+      questions: FAQItem[];
+    };
+  };
 }
 
 export default function FAQPage({ data }: IFAQPage) {
   return (
     <>
-      <FAQ faqitems={data.items} />
+      <FAQ faqdata={data.data} />
     </>
   );
 }
@@ -29,7 +34,6 @@ export async function getStaticProps() {
     };
   } catch (error) {
     if (error) {
-      console.log(error);
       return {
         redirect: {
           permanent: false,
