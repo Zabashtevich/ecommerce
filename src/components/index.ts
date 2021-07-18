@@ -13,3 +13,4 @@ export { default as Wallpaper } from "./Wallpaper";
 export { default as ProductSlider } from "./Product-slider";
 export { default as Info } from "./Info";
 export { default as Recommendations } from "./Recommendations";
+export { default as Accordion } from "./Accordion";
