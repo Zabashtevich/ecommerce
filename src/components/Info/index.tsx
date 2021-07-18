@@ -12,6 +12,8 @@ import {
   AmountInput,
   AmountPlus,
   AddButton,
+  LeftMobileButton,
+  RightMobileButton,
 } from "./styles/info";
 
 export default function Info() {

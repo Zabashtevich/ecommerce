@@ -94,6 +94,11 @@ export const Right = styled(BsFillCaretRightFill)``;
 export const Pagination = styled.div`
   margin-top: 2rem;
   display: flex;
+
+  @media (max-width: 600px) {
+    align-items: center;
+    gap: 0 20px;
+  }
 `;
 
 export const Dot = styled.div`
@@ -114,5 +119,47 @@ export const Dot = styled.div`
     width: 10px;
     left: 50%;
     top: 50%;
+  }
+
+  @media (max-width: 600px) {
+    margin-right: 0;
+  }
+`;
+
+export const LeftMobileButton = styled.button`
+  background-color: transparent;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  height: 35px;
+  color: white;
+  border: none;
+  width: 35px;
+
+  display: none;
+
+  @media (max-width: 600px) {
+    display: flex;
+  }
+`;
+
+export const RightMobileButton = styled.button`
+  background-color: transparent;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  height: 35px;
+  color: white;
+  border: none;
+  width: 35px;
+
+  display: none;
+
+  @media (max-width: 600px) {
+    display: flex;
   }
 `;

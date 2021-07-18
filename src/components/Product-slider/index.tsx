@@ -12,6 +12,8 @@ import {
   Right,
   Pagination,
   Dot,
+  LeftMobileButton,
+  RightMobileButton,
 } from "./styles/product-slider";
 
 const mainLink =
@@ -93,8 +95,14 @@ export default function ProductSlider() {
       </NextButton>
 
       <Pagination>
+        <LeftMobileButton onClick={prevSlide}>
+          <Left />
+        </LeftMobileButton>
         <Dot />
         <Dot />
+        <RightMobileButton onClick={nextSlide}>
+          <Right />
+        </RightMobileButton>
       </Pagination>
     </Container>
   );
