@@ -21,32 +21,35 @@ interface ProductSliderProps {
 }
 
 export default function ProductSlider({ images }: ProductSliderProps) {
-  const offset = useRef({ enter: 0, exit: 0 });
-  const [{ activeIndex, clicks }, setSliderSettings] = useState({
-    clicks: 0,
-    activeIndex: 1,
-  });
+  const clicks = useRef(0);
+  const index = useRef(0);
+
+  const [{ enter, exit }, setOffset] = useState({ enter: 0, exit: 0 });
   const [list, setList] = useState([{ src: images[0] }]);
 
+  console.log(index.current);
+
   function nextSlide() {
-    offset.current = { enter: 200, exit: -200 };
-    if (activeIndex === 1) {
-      setSliderSettings({ clicks: clicks + 1, activeIndex: 2 });
-      setList([{ src: images[1] }]);
+    clicks.current++;
+    setOffset({ enter: 200, exit: -200 });
+    if (images.length - 1 !== index.current) {
+      index.current++;
+      setList([{ src: images[index.current] }]);
     } else {
-      setSliderSettings({ clicks: clicks + 1, activeIndex: 1 });
-      setList([{ src: images[0] }]);
+      index.current = 0;
+      setList([{ src: images[index.current] }]);
     }
   }
 
   function prevSlide() {
-    offset.current = { enter: -200, exit: 200 };
-    if (activeIndex === 1) {
-      setSliderSettings({ clicks: clicks + 1, activeIndex: 2 });
-      setList([{ src: images[1] }]);
+    clicks.current++;
+    setOffset({ enter: -200, exit: 200 });
+    if (index.current === 0) {
+      index.current = images.length - 1;
+      setList([{ src: images[index.current] }]);
     } else {
-      setSliderSettings({ clicks: clicks + 1, activeIndex: 1 });
-      setList([{ src: images[0] }]);
+      index.current--;
+      setList([{ src: images[index.current] }]);
     }
   }
 
@@ -55,7 +58,7 @@ export default function ProductSlider({ images }: ProductSliderProps) {
       <TransitionGroup component={Viewport}>
         {list.map(({ src }) => (
           <CSSTransition
-            key={clicks}
+            key={`${clicks.current} ${src}`}
             timeout={1000}
             className="fade"
             mountOnEnter
@@ -65,7 +68,7 @@ export default function ProductSlider({ images }: ProductSliderProps) {
                 scale: 0.4,
                 zIndex: 100,
                 opacity: 0,
-                x: offset.current.enter,
+                x: enter,
                 duration: 1,
               })
             }
@@ -74,7 +77,7 @@ export default function ProductSlider({ images }: ProductSliderProps) {
                 scale: 0.4,
                 zIndex: 1,
                 opacity: 0,
-                x: offset.current.exit,
+                x: exit,
                 duration: 1,
               })
             }

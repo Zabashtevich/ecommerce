@@ -33,8 +33,6 @@ const mockedSlides = [
 export default function Recommendations() {
   const [offset, setOffset] = useState(0);
 
-  console.log(offset);
-
   return (
     <Container>
       <Title>
@@ -50,13 +48,13 @@ export default function Recommendations() {
             animate={{ x: offset * 200 }}
             transition={{ ease: "anticipate", duration: 1 }}
           >
-            {mockedSlides.map((item, i) => (
+            {/* {mockedSlides.map((item, i) => (
               <Slide key={item + i}>
                 <Thumbnail src={item} />
                 <Price>300 RUB</Price>
                 <Subtitle>Стикеры Дауны</Subtitle>
               </Slide>
-            ))}
+            ))} */}
           </Inner>
         </Viewport>
 
