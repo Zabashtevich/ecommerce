@@ -25,7 +25,7 @@ export default function CategoryPage({ products }: ICategoryPage) {
 }
 
 interface ProductContext extends NextPageContext {
-  query: { slug: string };
+  query: { category: string };
 }
 
 export async function getServerSideProps({ query }: ProductContext) {
@@ -33,7 +33,7 @@ export async function getServerSideProps({ query }: ProductContext) {
     const collections = await firebase
       .firestore()
       .collection("products")
-      .doc(query.slug)
+      .doc(query.category)
       .get();
 
     const response = collections.data() as { items: IProduct[] };

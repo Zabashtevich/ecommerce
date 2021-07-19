@@ -16,28 +16,26 @@ import {
   RightMobileButton,
 } from "./styles/product-slider";
 
-const mainLink =
-  "https://jolybell.com/storage/ngm6sm8lya.png?preview=&width=765&height=841";
+interface ProductSliderProps {
+  images: string[];
+}
 
-const auxLink =
-  "https://jolybell.com/storage/cgt40j9mjg.png?width=765&height=843";
-
-export default function ProductSlider() {
+export default function ProductSlider({ images }: ProductSliderProps) {
   const offset = useRef({ enter: 0, exit: 0 });
   const [{ activeIndex, clicks }, setSliderSettings] = useState({
     clicks: 0,
     activeIndex: 1,
   });
-  const [list, setList] = useState([{ src: mainLink }]);
+  const [list, setList] = useState([{ src: images[0] }]);
 
   function nextSlide() {
     offset.current = { enter: 200, exit: -200 };
     if (activeIndex === 1) {
       setSliderSettings({ clicks: clicks + 1, activeIndex: 2 });
-      setList([{ src: auxLink }]);
+      setList([{ src: images[1] }]);
     } else {
       setSliderSettings({ clicks: clicks + 1, activeIndex: 1 });
-      setList([{ src: mainLink }]);
+      setList([{ src: images[0] }]);
     }
   }
 
@@ -45,10 +43,10 @@ export default function ProductSlider() {
     offset.current = { enter: -200, exit: 200 };
     if (activeIndex === 1) {
       setSliderSettings({ clicks: clicks + 1, activeIndex: 2 });
-      setList([{ src: auxLink }]);
+      setList([{ src: images[1] }]);
     } else {
       setSliderSettings({ clicks: clicks + 1, activeIndex: 1 });
-      setList([{ src: mainLink }]);
+      setList([{ src: images[0] }]);
     }
   }
 

@@ -12,28 +12,26 @@ import {
   AmountInput,
   AmountPlus,
   AddButton,
-  LeftMobileButton,
-  RightMobileButton,
 } from "./styles/info";
 
-export default function Info() {
+interface InfoProps {
+  price: string;
+  description: string[];
+}
+
+export default function Info({ price, description }: InfoProps) {
   return (
     <Container>
-      <Price>1 750 RUB</Price>
+      <Price>{Number(price).toLocaleString("ru")} RUB</Price>
 
       <DeliveryInfo>
         (Доставка по миру - 550 RUB, по Украине - 50 UAH)
       </DeliveryInfo>
 
       <Description>
-        <p>Тонкая. Легкая. Черная.</p>
-        <p>
-          Футболка линейки B.O.M.J - первая единица контрбрендовой линии одежды.
-          Потрясающие качество в совместительстве с утонченным подходом к
-          деталям, которым не могут похвастаться именитые раздутые фирмы.
-        </p>
-        <p>Ткань сорта пенье</p>
-        <p>Состав: 95% cotton, 5% spandex. Плотность 170 г/м²</p>
+        {description.map((item, i) => (
+          <p key={i}>{item}</p>
+        ))}
       </Description>
 
       <Wrapper>

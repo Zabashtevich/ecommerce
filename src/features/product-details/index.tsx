@@ -1,14 +1,19 @@
 import { ProductSlider, Info, Recommendations } from "@src/components";
 
 import { Inner, Title, Container } from "./styles/product-details";
+import { IProduct } from "../../interfaces/product";
 
-export default function ProductDetails() {
+interface IProductDetails {
+  product: IProduct;
+}
+
+export default function ProductDetails({ product }: IProductDetails) {
   return (
     <Inner>
-      <Title>B.O.M.J Black</Title>
+      <Title>{product.name}</Title>
       <Container>
-        <ProductSlider />
-        <Info />
+        <ProductSlider images={product.images} />
+        <Info description={product.description} price={product.price} />
       </Container>
       <Recommendations />
     </Inner>
