@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 import { BsFillCaretLeftFill, BsFillCaretRightFill } from "react-icons/bs";
 
@@ -101,25 +101,34 @@ export const Pagination = styled.div`
   }
 `;
 
-export const Dot = styled.div`
+interface IDot {
+  selected: boolean;
+}
+
+export const Dot = styled.div<IDot>`
   border: 2px solid white;
   position: relative;
   border-radius: 50%;
   margin-right: 1rem;
+  cursor: pointer;
   height: 18px;
   width: 18px;
 
-  ::after {
-    transform: translate(-50%, -50%);
-    background-color: white;
-    position: absolute;
-    border-radius: 50%;
-    height: 10px;
-    content: "";
-    width: 10px;
-    left: 50%;
-    top: 50%;
-  }
+  ${({ selected }) =>
+    selected &&
+    css`
+      ::after {
+        transform: translate(-50%, -50%);
+        background-color: white;
+        position: absolute;
+        border-radius: 50%;
+        height: 10px;
+        content: "";
+        width: 10px;
+        left: 50%;
+        top: 50%;
+      }
+    `};
 
   @media (max-width: 600px) {
     margin-right: 0;

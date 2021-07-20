@@ -14,10 +14,10 @@ export const Inner = styled.section`
 
 export const Title = styled.h2`
   letter-spacing: 1px;
-  line-height: 57px;
   font-size: 37px;
 
   @media (max-width: 1024px) {
+    text-align: center;
     margin: 0;
   }
 

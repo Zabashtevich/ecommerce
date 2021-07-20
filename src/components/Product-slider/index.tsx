@@ -21,13 +21,12 @@ interface ProductSliderProps {
 }
 
 export default function ProductSlider({ images }: ProductSliderProps) {
+  const navigationVisible = useRef(images.length > 1);
   const clicks = useRef(0);
   const index = useRef(0);
 
   const [{ enter, exit }, setOffset] = useState({ enter: 0, exit: 0 });
   const [list, setList] = useState([{ src: images[0] }]);
-
-  console.log(index.current);
 
   function nextSlide() {
     clicks.current++;
@@ -50,6 +49,18 @@ export default function ProductSlider({ images }: ProductSliderProps) {
     } else {
       index.current--;
       setList([{ src: images[index.current] }]);
+    }
+  }
+
+  function onDotClick(src: string, i: number) {
+    if (i > index.current) {
+      index.current = i;
+      setOffset({ enter: 200, exit: -200 });
+      setList([{ src: src }]);
+    } else {
+      index.current = i;
+      setOffset({ enter: -200, exit: 200 });
+      setList([{ src: src }]);
     }
   }
 
@@ -87,24 +98,34 @@ export default function ProductSlider({ images }: ProductSliderProps) {
         ))}
       </TransitionGroup>
 
-      <PrevButton onClick={prevSlide}>
-        <Left />
-      </PrevButton>
+      {navigationVisible && (
+        <>
+          <PrevButton onClick={prevSlide}>
+            <Left />
+          </PrevButton>
+          <NextButton onClick={nextSlide}>
+            <Right />
+          </NextButton>
+        </>
+      )}
 
-      <NextButton onClick={nextSlide}>
-        <Right />
-      </NextButton>
-
-      <Pagination>
-        <LeftMobileButton onClick={prevSlide}>
-          <Left />
-        </LeftMobileButton>
-        <Dot />
-        <Dot />
-        <RightMobileButton onClick={nextSlide}>
-          <Right />
-        </RightMobileButton>
-      </Pagination>
+      {navigationVisible && (
+        <Pagination>
+          <LeftMobileButton onClick={prevSlide}>
+            <Left />
+          </LeftMobileButton>
+          {images.map((item, i) => (
+            <Dot
+              key={item}
+              selected={index.current === i}
+              onClick={() => onDotClick(item, i)}
+            />
+          ))}
+          <RightMobileButton onClick={nextSlide}>
+            <Right />
+          </RightMobileButton>
+        </Pagination>
+      )}
     </Container>
   );
 }
