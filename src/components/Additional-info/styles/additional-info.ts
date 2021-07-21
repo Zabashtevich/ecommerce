@@ -1,14 +1,20 @@
 import styled from "styled-components";
 
-export const Inner = styled.div``;
+export const Title = styled.span`
+  text-align: center;
+  font-weight: bold;
+  line-height: 36px;
+  font-size: 20px;
+`;
 
-export const Overlay = styled.div``;
+export const Description = styled.span`
+  text-align: left;
+  font-size: 15px;
 
-export const Container = styled.div``;
-
-export const Title = styled.div``;
-
-export const Description = styled.div``;
+  p {
+    margin: 20px 0 0;
+  }
+`;
 
 export const Header = styled.div``;
 

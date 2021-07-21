@@ -31,6 +31,7 @@ interface ProductPageContext extends NextPageContext {
 }
 
 export async function getServerSideProps({ query }: ProductPageContext) {
+  
   try {
     const response = await firebase
       .firestore()

@@ -1,3 +1,4 @@
+import { useModalsContext } from "@src/context";
 import {
   Container,
   Price,
@@ -20,13 +21,13 @@ interface InfoProps {
 }
 
 export default function Info({ price, description }: InfoProps) {
+  const { setVisible } = useModalsContext();
+
   return (
     <Container>
       <Price>{Number(price).toLocaleString("ru")} RUB</Price>
 
-      <DeliveryInfo>
-        (Доставка по миру - 550 RUB, по Украине - 50 UAH)
-      </DeliveryInfo>
+      <DeliveryInfo>(Доставка по миру - 550 RUB, по Украине - 50 UAH)</DeliveryInfo>
 
       <Description>
         {description.map((item, i) => (
@@ -36,7 +37,7 @@ export default function Info({ price, description }: InfoProps) {
 
       <Wrapper>
         <ModalButton>РАЗМЕРНАЯ СЕТКА</ModalButton>
-        <ModalButton>УХОД ЗА ВЕЩЬЮ</ModalButton>
+        <ModalButton onClick={() => setVisible((prev) => ({ ...prev, careVisible: true }))}>УХОД ЗА ВЕЩЬЮ</ModalButton>
       </Wrapper>
 
       <Wrapper>
