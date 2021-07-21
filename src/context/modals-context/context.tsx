@@ -2,6 +2,7 @@ import { createContext, useState } from "react";
 
 interface ModalContextState {
   careVisible: boolean;
+  sizeVisible: boolean;
 }
 
 export type IModalsContext = {
@@ -14,6 +15,7 @@ export const ModalsContext = createContext<IModalsContext>({} as IModalsContext)
 export default function ModalContextProvider({ children }: { children: JSX.Element | JSX.Element[] }) {
   const [visible, setVisible] = useState<ModalContextState>({
     careVisible: false,
+    sizeVisible: false,
   });
 
   return <ModalsContext.Provider value={{ visible, setVisible }}>{children}</ModalsContext.Provider>;

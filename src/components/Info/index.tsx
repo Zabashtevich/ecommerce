@@ -36,7 +36,9 @@ export default function Info({ price, description }: InfoProps) {
       </Description>
 
       <Wrapper>
-        <ModalButton>РАЗМЕРНАЯ СЕТКА</ModalButton>
+        <ModalButton onClick={() => setVisible((prev) => ({ ...prev, sizeVisible: true }))}>
+          РАЗМЕРНАЯ СЕТКА
+        </ModalButton>
         <ModalButton onClick={() => setVisible((prev) => ({ ...prev, careVisible: true }))}>УХОД ЗА ВЕЩЬЮ</ModalButton>
       </Wrapper>
 

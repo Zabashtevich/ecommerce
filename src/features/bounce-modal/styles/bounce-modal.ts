@@ -2,10 +2,11 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 import { BsX } from "react-icons/bs";
 
-export const Inner = styled(motion.div)`
+export const Outer = styled(motion.div)`
   background-color: rgba(0, 0, 0, 0.7);
   justify-content: center;
   align-items: center;
+  overflow-y: scroll;
   user-select: none;
   position: fixed;
   display: flex;
@@ -15,9 +16,18 @@ export const Inner = styled(motion.div)`
   left: 0;
   top: 0;
 
-  @media (max-width: 800px) {
-    padding: 0 2rem;
+  ::-webkit-scrollbar {
+    display: none;
   }
+`;
+
+export const Inner = styled.div`
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  display: flex;
+  margin: auto;
+  width: 100%;
 `;
 
 export const Overlay = styled.div`
@@ -46,6 +56,7 @@ export const Container = styled(motion.div)`
 
   @media (max-width: 900px) {
     padding: 7vw;
+    margin: 5vw;
   }
 `;
 

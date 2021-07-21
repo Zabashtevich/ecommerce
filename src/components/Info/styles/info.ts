@@ -149,6 +149,7 @@ export const ModalButton = styled.button`
   white-space: nowrap;
   padding: 0 30px;
   font-size: 12px;
+  cursor: pointer;
   height: 46px;
 
   :last-of-type {

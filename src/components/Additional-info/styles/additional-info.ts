@@ -16,10 +16,38 @@ export const Description = styled.span`
   }
 `;
 
-export const Header = styled.div``;
+export const Table = styled.table`
+  color: rgba(0, 0, 0, 0.8);
+  border-collapse: collapse;
+  background: #f4f6f8;
+  text-align: center;
+  border-radius: 5px;
+  margin-top: 2rem;
+  overflow: hidden;
+  font-size: 18px;
+  display: table;
+  border: none;
+  width: 100%;
+`;
 
-export const Table = styled.div``;
+export const Header = styled.thead`
+  background: #fcfcfd;
+  font-weight: bold;
+`;
 
-export const Row = styled.div``;
+export const Row = styled.tr`
+  :nth-child(2n) {
+    background: #fcfcfd;
+  }
+`;
 
-export const Ceil = styled.div``;
+export const Ceil = styled.td`
+  line-height: 40px;
+  height: 40px;
+  padding: 0;
+`;
+
+export const Footer = styled.footer`
+  font-style: italic;
+  margin-top: 1rem;
+`;
