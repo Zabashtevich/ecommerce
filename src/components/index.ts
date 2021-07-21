@@ -15,3 +15,5 @@ export { default as Info } from "./Info";
 export { default as Recommendations } from "./Recommendations";
 export { default as Accordion } from "./Accordion";
 export { default as Error } from "./Error";
+export { default as CareInfo } from "./Additional-info/care-info";
+export { default as SizeInfo } from "./Additional-info/size-info";
