@@ -1,7 +1,7 @@
 import { AnimatePresence } from "framer-motion";
 import { useEffect } from "react";
 
-import { useModalsContext } from "../../context";
+import { useModalsContext } from "../../contexts";
 import { Outer, Inner, Overlay, Container, Button, Close } from "./styles/bounce-modal";
 
 interface IBounceModal {

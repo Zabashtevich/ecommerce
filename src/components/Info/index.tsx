@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { useModalsContext } from "@src/context";
+import { useModalsContext } from "@src/contexts";
 import { AvailableSizes } from "@src/fixtures/sizes";
 import {
   Container,

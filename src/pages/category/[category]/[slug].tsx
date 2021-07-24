@@ -11,7 +11,6 @@ interface IProductPage {
 }
 
 export default function ProductPage({ product }: IProductPage) {
-  console.log(product);
   return (
     <>
       <Head>
@@ -31,15 +30,9 @@ interface ProductPageContext extends NextPageContext {
 }
 
 export async function getServerSideProps({ query }: ProductPageContext) {
-  
   try {
-    const response = await firebase
-      .firestore()
-      .collection("products")
-      .doc(query.category)
-      .get();
+    const response = await firebase.firestore().collection("products").doc(query.category).get();
     const data = response.data() as { items: IProduct[] };
-    console.log(data);
     const requiredProduct = data.items.filter((item) => item.id === query.slug);
 
     return {
