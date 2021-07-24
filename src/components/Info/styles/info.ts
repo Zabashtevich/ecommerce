@@ -128,16 +128,30 @@ export const SizesInner = styled.div`
   }
 `;
 
-export const Size = styled.button`
+interface ISize {
+  selected?: boolean;
+}
+
+export const Size = styled.button<ISize>`
   border: 1px solid rgb(71, 72, 82);
   background-color: rgb(71, 72, 82);
   color: rgb(121, 123, 140);
   margin-right: 0.5rem;
   border-radius: 50%;
+  text-align: center;
   font-weight: 600;
-  font-size: 18px;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 0.1rem;
   height: 38px;
   width: 38px;
+
+  ${({ selected }) =>
+    selected &&
+    css`
+      background-color: white;
+      color: #000;
+    `};
 `;
 
 export const ModalButton = styled.button`
@@ -198,6 +212,11 @@ export const AmountMinus = styled.button`
   width: 50px;
   color: white;
   padding: 0;
+
+  :hover {
+    filter: brightness(70%);
+    transition: 200ms;
+  }
 `;
 
 export const AmountInput = styled.input`
@@ -224,6 +243,11 @@ export const AmountPlus = styled.button`
   width: 50px;
   color: white;
   padding: 0;
+
+  :hover {
+    filter: brightness(70%);
+    transition: 200ms;
+  }
 `;
 
 export const AddButton = styled.button`
@@ -234,6 +258,7 @@ export const AddButton = styled.button`
   margin-left: 30px;
   font-size: 14px;
   padding: 0 2rem;
+  cursor: pointer;
   border: none;
   height: 50px;
   color: #000;

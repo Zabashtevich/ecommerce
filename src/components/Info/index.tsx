@@ -1,4 +1,7 @@
+import { useState } from "react";
+
 import { useModalsContext } from "@src/context";
+import { AvailableSizes } from "@src/fixtures/sizes";
 import {
   Container,
   Price,
@@ -20,12 +23,16 @@ interface InfoProps {
   description: string[];
 }
 
-export default function Info({ price, description }: InfoProps) {
+export default function Info({ price: productPrice, description }: InfoProps) {
+  const [{ size: purchaseSize, totalPrice }, setPurchaseDetais] = useState({
+    size: "xs",
+    totalPrice: productPrice,
+  });
   const { setVisible } = useModalsContext();
 
   return (
     <Container>
-      <Price>{Number(price).toLocaleString("ru")} RUB</Price>
+      <Price>{Number(totalPrice).toLocaleString("ru")} RUB</Price>
 
       <DeliveryInfo>(Доставка по миру - 550 RUB, по Украине - 50 UAH)</DeliveryInfo>
 
@@ -44,18 +51,22 @@ export default function Info({ price, description }: InfoProps) {
 
       <Wrapper>
         <SizesInner>
-          <Size>XS</Size>
-          <Size>S</Size>
-          <Size>M</Size>
-          <Size>L</Size>
-          <Size>XL</Size>
+          {AvailableSizes.map(({ size, price }) => (
+            <Size
+              key={size}
+              selected={size === purchaseSize}
+              onClick={() => setPurchaseDetais({ size, totalPrice: (price + Number(productPrice)).toString() })}
+            >
+              {size.toUpperCase()}
+            </Size>
+          ))}
         </SizesInner>
       </Wrapper>
 
       <Wrapper footerWrapper={true}>
         <AmountInner>
           <AmountMinus>-</AmountMinus>
-          <AmountInput value="1" />
+          <AmountInput value="1" readOnly />
           <AmountPlus>+</AmountPlus>
         </AmountInner>
 

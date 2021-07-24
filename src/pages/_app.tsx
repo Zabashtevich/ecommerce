@@ -1,16 +1,18 @@
 import { AppProps } from "next/app";
 import { ThemeProvider } from "styled-components";
+import { Provider } from "react-redux";
 import "normalize.css";
 
 import { GlobalStyles } from "@src/theme/global-styles";
 import theme from "../theme/index";
 
-import SignupContextProvider from "@src/contexts/signup-modal/context";
 import { SignupModal, LoginModal, SidebarModal } from "../features";
+import SignupContextProvider from "@src/contexts/signup-modal/context";
 import LoginContextProvider from "../contexts/login-context/context";
 import CardContextProvider from "@src/contexts/sidebar-context/context";
-import AppLayout from "../layout/index";
 import ModalContextProvider from "@src/context/modals-context/context";
+import AppLayout from "../layout/index";
+import { store } from "@src/redux";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -20,10 +22,12 @@ function MyApp({ Component, pageProps }: AppProps) {
           <CardContextProvider>
             <ModalContextProvider>
               <AppLayout>
-                <Component {...pageProps} />
-                <SidebarModal />
-                <LoginModal />
-                <SignupModal />
+                <Provider store={store}>
+                  <Component {...pageProps} />
+                  <SidebarModal />
+                  <LoginModal />
+                  <SignupModal />
+                </Provider>
               </AppLayout>
             </ModalContextProvider>
           </CardContextProvider>
