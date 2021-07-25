@@ -41,6 +41,8 @@ export const Row = styled.tr`
   }
 `;
 
+export const HeadCeil = styled.th``;
+
 export const Ceil = styled.td`
   line-height: 40px;
   height: 40px;

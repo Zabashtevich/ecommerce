@@ -13,6 +13,7 @@ import CardContextProvider from "@src/contexts/sidebar-context/context";
 import ModalContextProvider from "@src/contexts/modals-context/context";
 import AppLayout from "../layout/index";
 import { store } from "@src/redux";
+import InformationContextProvider from "../contexts/information-context/context";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -21,15 +22,17 @@ function MyApp({ Component, pageProps }: AppProps) {
         <LoginContextProvider>
           <CardContextProvider>
             <ModalContextProvider>
-              <AppLayout>
-                <Provider store={store}>
-                  <Component {...pageProps} />
-                  <SidebarModal />
-                  <LoginModal />
-                  <SignupModal />
-                  <InformationModal />
-                </Provider>
-              </AppLayout>
+              <InformationContextProvider>
+                <AppLayout>
+                  <Provider store={store}>
+                    <Component {...pageProps} />
+                    <SidebarModal />
+                    <LoginModal />
+                    <SignupModal />
+                    <InformationModal />
+                  </Provider>
+                </AppLayout>
+              </InformationContextProvider>
             </ModalContextProvider>
           </CardContextProvider>
         </LoginContextProvider>

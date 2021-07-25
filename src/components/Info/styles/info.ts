@@ -223,6 +223,7 @@ export const AmountInput = styled.input`
   box-sizing: border-box;
   border: 2px solid #fff;
   text-align: center;
+  font-weight: bold;
   background: #fff;
   border-radius: 0;
   font-size: 15px;

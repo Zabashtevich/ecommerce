@@ -1,14 +1,19 @@
 import { createContext, useState } from "react";
 
-export interface InformationContextType {
+interface InfonrmationStateType {
   visible: boolean;
-  setVisible: ((cb: (value: boolean) => boolean) => void) & ((value: boolean) => void);
+  message: string | null;
 }
+
+export type InformationContextType = [
+  InfonrmationStateType,
+  ((cb: (value: InfonrmationStateType) => InfonrmationStateType) => void) & ((value: InfonrmationStateType) => void),
+];
 
 export const InformationContext = createContext<InformationContextType>({} as InformationContextType);
 
 export default function InformationContextProvider({ children }: { children: JSX.Element | JSX.Element[] }) {
-  const [visible, setVisible] = useState(false);
+  const [{ visible, message }, setState] = useState<InfonrmationStateType>({ visible: false, message: null });
 
-  return <InformationContext.Provider value={{ visible, setVisible }}>{children}</InformationContext.Provider>;
+  return <InformationContext.Provider value={[{ visible, message }, setState]}>{children}</InformationContext.Provider>;
 }

@@ -1,4 +1,4 @@
-import { Title, Description, Table, Header, Row, Ceil, Footer } from "./styles/additional-info";
+import { Title, Description, Table, Header, Row, HeadCeil, Ceil, Footer } from "./styles/additional-info";
 
 export default function SizeInfo() {
   return (
@@ -25,10 +25,12 @@ export default function SizeInfo() {
       </Description>
       <Table>
         <Header>
-          <Ceil>(см)</Ceil>
-          <Ceil>A</Ceil>
-          <Ceil>B</Ceil>
-          <Ceil>C</Ceil>
+          <Row>
+            <HeadCeil>(см)</HeadCeil>
+            <HeadCeil>A</HeadCeil>
+            <HeadCeil>B</HeadCeil>
+            <HeadCeil>C</HeadCeil>
+          </Row>
         </Header>
         <tbody>
           <Row>

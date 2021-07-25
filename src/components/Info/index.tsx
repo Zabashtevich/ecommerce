@@ -23,16 +23,26 @@ interface InfoProps {
   description: string[];
 }
 
-export default function Info({ price: productPrice, description }: InfoProps) {
-  const [{ size: purchaseSize, totalPrice }, setPurchaseDetais] = useState({
-    size: "xs",
-    totalPrice: productPrice,
-  });
+export default function Info({ price: originPrice, description }: InfoProps) {
+  const [price, setPrice] = useState(originPrice);
+  const [size, setSize] = useState("xs");
+  const [amount, setAmount] = useState(1);
+
   const { setVisible } = useModalsContext();
+
+  function descreaseAmoune() {
+    if (amount === 1) return;
+    setAmount((prev) => --prev);
+  }
+
+  function increaseAmount() {
+    if (amount === 20) return;
+    setAmount((prev) => ++prev);
+  }
 
   return (
     <Container>
-      <Price>{Number(totalPrice).toLocaleString("ru")} RUB</Price>
+      <Price>{Number(price).toLocaleString("ru")} RUB</Price>
 
       <DeliveryInfo>(Доставка по миру - 550 RUB, по Украине - 50 UAH)</DeliveryInfo>
 
@@ -51,13 +61,16 @@ export default function Info({ price: productPrice, description }: InfoProps) {
 
       <Wrapper>
         <SizesInner>
-          {AvailableSizes.map(({ size, price }) => (
+          {AvailableSizes.map(({ size: availableSize, price }) => (
             <Size
-              key={size}
-              selected={size === purchaseSize}
-              onClick={() => setPurchaseDetais({ size, totalPrice: (price + Number(productPrice)).toString() })}
+              key={availableSize}
+              selected={size === availableSize}
+              onClick={() => {
+                setSize(availableSize);
+                setPrice((Number(originPrice) + price).toString());
+              }}
             >
-              {size.toUpperCase()}
+              {availableSize.toUpperCase()}
             </Size>
           ))}
         </SizesInner>
@@ -65,9 +78,9 @@ export default function Info({ price: productPrice, description }: InfoProps) {
 
       <Wrapper footerWrapper={true}>
         <AmountInner>
-          <AmountMinus>-</AmountMinus>
-          <AmountInput value="1" readOnly />
-          <AmountPlus>+</AmountPlus>
+          <AmountMinus onClick={descreaseAmoune}>-</AmountMinus>
+          <AmountInput value={amount} readOnly />
+          <AmountPlus onClick={increaseAmount}>+</AmountPlus>
         </AmountInner>
 
         <AddButton>ДОБАВИТЬ В КОРЗИНУ</AddButton>
