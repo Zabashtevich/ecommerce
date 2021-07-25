@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 import { useModalsContext } from "@src/contexts";
 import { AvailableSizes } from "@src/fixtures/sizes";
 import {
@@ -21,28 +19,29 @@ import {
 interface InfoProps {
   price: string;
   description: string[];
+  increaseAmount: () => void;
+  decreaseAmount: () => void;
+  addPurchaseToSidebar: () => void;
+  changeSize: (availableSize: string, price: number) => void;
+  amount: number;
+  size: string;
 }
 
-export default function Info({ price: originPrice, description }: InfoProps) {
-  const [price, setPrice] = useState(originPrice);
-  const [size, setSize] = useState("xs");
-  const [amount, setAmount] = useState(1);
-
+export default function Info({
+  price: originPrice,
+  description,
+  increaseAmount,
+  decreaseAmount,
+  addPurchaseToSidebar,
+  changeSize,
+  amount,
+  size,
+}: InfoProps) {
   const { setVisible } = useModalsContext();
-
-  function descreaseAmoune() {
-    if (amount === 1) return;
-    setAmount((prev) => --prev);
-  }
-
-  function increaseAmount() {
-    if (amount === 20) return;
-    setAmount((prev) => ++prev);
-  }
 
   return (
     <Container>
-      <Price>{Number(price).toLocaleString("ru")} RUB</Price>
+      <Price>{Number(originPrice).toLocaleString("ru")} RUB</Price>
 
       <DeliveryInfo>(Доставка по миру - 550 RUB, по Украине - 50 UAH)</DeliveryInfo>
 
@@ -63,12 +62,9 @@ export default function Info({ price: originPrice, description }: InfoProps) {
         <SizesInner>
           {AvailableSizes.map(({ size: availableSize, price }) => (
             <Size
-              key={availableSize}
+              key={`${availableSize}`}
               selected={size === availableSize}
-              onClick={() => {
-                setSize(availableSize);
-                setPrice((Number(originPrice) + price).toString());
-              }}
+              onClick={() => changeSize(availableSize, price)}
             >
               {availableSize.toUpperCase()}
             </Size>
@@ -78,12 +74,12 @@ export default function Info({ price: originPrice, description }: InfoProps) {
 
       <Wrapper footerWrapper={true}>
         <AmountInner>
-          <AmountMinus onClick={descreaseAmoune}>-</AmountMinus>
+          <AmountMinus onClick={decreaseAmount}>-</AmountMinus>
           <AmountInput value={amount} readOnly />
           <AmountPlus onClick={increaseAmount}>+</AmountPlus>
         </AmountInner>
 
-        <AddButton>ДОБАВИТЬ В КОРЗИНУ</AddButton>
+        <AddButton onClick={addPurchaseToSidebar}>ДОБАВИТЬ В КОРЗИНУ</AddButton>
       </Wrapper>
     </Container>
   );

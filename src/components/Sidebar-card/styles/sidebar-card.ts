@@ -65,6 +65,7 @@ interface ISize {
 
 export const Size = styled.button<ISize>`
   background-color: transparent;
+  text-transform: uppercase;
   align-items: center;
   font-size: 13px;
   cursor: pointer;
