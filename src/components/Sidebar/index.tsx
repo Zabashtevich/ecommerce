@@ -1,4 +1,6 @@
 import { FC } from "react";
+
+import { IPurchase } from "../../interfaces/product";
 import {
   Outer,
   Overlay,
@@ -24,19 +26,19 @@ import {
 } from "./styles/sidebar";
 
 interface ISidebar {
-  setVisible: (arg: boolean) => void;
+  closeSidebar: () => void;
   renderItem: (item: any) => JSX.Element;
-  items: [1, 2, 3, 4];
+  items: IPurchase[];
 }
 
-const Sidebar: FC<ISidebar> = ({ setVisible, items, renderItem }) => {
+const Sidebar: FC<ISidebar> = ({ closeSidebar, items, renderItem }) => {
   return (
     <Outer>
-      <Overlay onClick={() => setVisible(false)} />
+      <Overlay onClick={closeSidebar} />
       <Container>
-        <Continue onClick={() => setVisible(false)}>
+        <Continue>
           <Arrow />
-          <Subtitle>ПРОДОЛЖИТЬ ПОКУПКИ</Subtitle>
+          <Subtitle onClick={closeSidebar}>ПРОДОЛЖИТЬ ПОКУПКИ</Subtitle>
         </Continue>
         <Header>
           <Title>Мои покупки</Title>

@@ -5,3 +5,8 @@ export interface IProduct {
   name: string;
   id: string;
 }
+
+export interface IPurchase extends IProduct {
+  amount: number;
+  size: string;
+}

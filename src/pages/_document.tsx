@@ -1,10 +1,4 @@
-import Document, {
-  Html,
-  Head,
-  Main,
-  NextScript,
-  DocumentContext,
-} from "next/document";
+import Document, { Html, Head, Main, NextScript, DocumentContext } from "next/document";
 import { ServerStyleSheet } from "styled-components";
 
 class MyDocument extends Document {
@@ -15,8 +9,7 @@ class MyDocument extends Document {
     try {
       ctx.renderPage = () =>
         originalRenderPage({
-          enhanceApp: (App: any) => (props: any) =>
-            sheet.collectStyles(<App {...props} />),
+          enhanceApp: (App: any) => (props: any) => sheet.collectStyles(<App {...props} />),
         });
 
       const initialProps = await Document.getInitialProps(ctx);
@@ -39,12 +32,7 @@ class MyDocument extends Document {
       <Html lang="ru">
         <Head>
           <meta charSet="utf-8" />
-          <link
-            rel="preload"
-            href="/fonts/futura/stylesheet.css"
-            as="font"
-            crossOrigin=""
-          />
+          <link rel="preload" href="/fonts/futura/stylesheet.css" as="font" crossOrigin="" />
           <link rel="preload" as="image" href="/first-thumbnail.webp" />
           <link rel="preload" as="image" href="/second-thumbnail.webp" />
         </Head>

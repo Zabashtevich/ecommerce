@@ -17,12 +17,14 @@ import {
   Burger,
 } from "./styles/navigation";
 import { MobileNavModal } from "@src/features";
-import { useLoginModal, useSidebarModal } from "@src/contexts";
+import { useLoginModal } from "@src/contexts";
+import { useAppDispatch } from "@src/hooks/redux";
+import { openSidebar } from "@src/redux/sidebar-slice";
 
 const Navigation: FC = () => {
   const [mobileNavVisible, setMobileNavVisible] = useState(false);
   const { setVisible: setLoginVisible } = useLoginModal();
-  const { setVisible: setCardVisible } = useSidebarModal();
+  const dispatch = useAppDispatch();
 
   return (
     <Container>
@@ -31,9 +33,7 @@ const Navigation: FC = () => {
           {NavigationCategories.map((item) => (
             <NavItem key={item.name}>
               <Link href={`/category/${item.category}`} passHref>
-                <NavLink title={`go to ${item.category}`}>
-                  {item.name.toUpperCase()}
-                </NavLink>
+                <NavLink title={`go to ${item.category}`}>{item.name.toUpperCase()}</NavLink>
               </Link>
             </NavItem>
           ))}
@@ -41,16 +41,13 @@ const Navigation: FC = () => {
       </Navbar>
       <Buttons>
         <Account onClick={() => setLoginVisible(true)} />
-        <Wrapper onClick={() => setCardVisible(true)}>
-          <Card />
+        <Wrapper>
+          <Card onClick={() => dispatch(openSidebar())} />
           <Price>0 RUB</Price>
         </Wrapper>
         <Burger onClick={() => setMobileNavVisible(true)} />
       </Buttons>
-      <MobileNavModal
-        mobileNavVisible={mobileNavVisible}
-        setMobileNavVisible={setMobileNavVisible}
-      />
+      <MobileNavModal mobileNavVisible={mobileNavVisible} setMobileNavVisible={setMobileNavVisible} />
     </Container>
   );
 };

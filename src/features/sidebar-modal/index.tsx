@@ -2,11 +2,13 @@ import { FC } from "react";
 import { CSSTransition } from "react-transition-group";
 import gsap from "gsap";
 
-import { Purchases, Sidebar } from "@comps";
-import { useSidebarModal } from "../../contexts";
+import { SidebarCard, Sidebar } from "@comps";
+import { useAppSelector, useAppDispatch } from "@src/hooks/redux";
+import { closeSidebar } from "@src/redux/sidebar-slice";
 
 const SidebarModal: FC = () => {
-  const { visible, setVisible } = useSidebarModal();
+  const { visible, purchases } = useAppSelector(({ sidebar }) => sidebar);
+  const dispatch = useAppDispatch();
 
   return (
     <CSSTransition
@@ -33,9 +35,11 @@ const SidebarModal: FC = () => {
       }}
     >
       <Sidebar
-        setVisible={setVisible}
-        renderItem={(item: any) => <Purchases item={item} />}
-        items={[1, 2, 3, 4]}
+        closeSidebar={() => {
+          dispatch(closeSidebar());
+        }}
+        renderItem={(item) => <SidebarCard item={item} />}
+        items={purchases}
       />
     </CSSTransition>
   );

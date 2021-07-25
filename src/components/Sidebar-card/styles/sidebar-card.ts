@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 import { BsPlus, BsDash } from "react-icons/bs";
 
@@ -59,7 +59,11 @@ export const Inner = styled.div`
   display: flex;
 `;
 
-export const Size = styled.button`
+interface ISize {
+  selected?: boolean;
+}
+
+export const Size = styled.button<ISize>`
   background-color: transparent;
   align-items: center;
   font-size: 13px;
@@ -68,6 +72,12 @@ export const Size = styled.button`
   border: none;
   margin: 3px;
   padding: 0;
+
+  ${({ selected }) =>
+    selected &&
+    css`
+      font-weight: bold;
+    `};
 `;
 
 export const Amount = styled.span`

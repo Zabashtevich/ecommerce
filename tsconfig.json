@@ -25,7 +25,8 @@
       //alias pathing for absolute paths
       "@src/*": ["src/*"],
       "@pages/*": ["src/pages/*"],
-      "@comps*": ["src/components/"]
+      "@comps*": ["src/components/"],
+      "@app-redux*": ["src/redux/"]
     },
     "experimentalDecorators": true /* Enables experimental support for ES7 decorators. */,
     "emitDecoratorMetadata": true /* Enables experimental support for emitting type metadata for decorators. */

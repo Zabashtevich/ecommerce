@@ -3,13 +3,13 @@ import { createContext } from "react";
 
 export interface ILoginContext {
   visible: boolean;
-  setVisible: (cb: (value: boolean) => boolean) => void | ((value: boolean) => void);
+  setVisible: ((cb: (value: boolean) => boolean) => void) & ((value: boolean) => void);
 }
 
 export const LoginContext = createContext<ILoginContext>({} as ILoginContext);
 
 export default function LoginContextProvider({ children }: { children: JSX.Element | JSX.Element[] }) {
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState<boolean>(false);
 
   return <LoginContext.Provider value={{ visible, setVisible }}>{children}</LoginContext.Provider>;
 }

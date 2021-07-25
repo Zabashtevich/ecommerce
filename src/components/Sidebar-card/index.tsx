@@ -1,4 +1,7 @@
 import { FC } from "react";
+
+import { IPurchase } from "../../interfaces/product";
+import { AvailableSizes } from "../../fixtures/sizes/index";
 import {
   Item,
   LinkWrapper,
@@ -13,28 +16,28 @@ import {
   Plus,
   Minus,
   Price,
-} from "./styles/purchases";
+} from "./styles/sidebar-card";
 
-interface IPurchase {
-  item: any;
+interface ISidebarCard {
+  item: IPurchase;
 }
 
-const Purchases: FC<IPurchase> = () => {
+const SidebarCard: FC<ISidebarCard> = ({ item }) => {
   return (
     <Item>
       <LinkWrapper>
         <Thumbnail />
       </LinkWrapper>
       <Description>
-        <Title>JOLY.POLO White</Title>
+        <Title>{item.name}</Title>
         <Wrapper>
           <Subtitle>Размер:</Subtitle>
           <Inner>
-            <Size>XS</Size>
-            <Size>S</Size>
-            <Size>L</Size>
-            <Size>XL</Size>
-            <Size>2XL</Size>z
+            {AvailableSizes.map(({ size: availableSize }) => (
+              <Size key={availableSize} selected={availableSize === item.size}>
+                {availableSize}
+              </Size>
+            ))}
           </Inner>
         </Wrapper>
         <Wrapper>
@@ -51,4 +54,4 @@ const Purchases: FC<IPurchase> = () => {
   );
 };
 
-export default Purchases;
+export default SidebarCard;
