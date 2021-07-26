@@ -15,6 +15,7 @@ const sidebarSlice = createSlice({
     add: (state, { payload }: PayloadAction<IPurchase>) => {
       state.totalPrice = state.purchases.reduce((acc, curr) => {
         acc += Number(curr.price);
+        console.log(acc);
         return acc;
       }, 0);
 
@@ -29,7 +30,7 @@ const sidebarSlice = createSlice({
     },
     changeSize: (state, { payload }: PayloadAction<NewSizeType>) => {
       state.purchases.map((item) => {
-        item.id === payload.id ? { ...item, size: payload.size } : item;
+        item.id === payload.id ? (item.size = payload.size) : item;
       });
     },
     increase: (state, { payload }: PayloadAction<NewAmountType>) => {
@@ -45,7 +46,10 @@ const sidebarSlice = createSlice({
       state.purchases.map((item) => (item.id === purchase!.id ? { ...item, amount: item.amount-- } : item));
     },
     remove: (state, { payload }: PayloadAction<{ id: string }>) => {
-      state.purchases.filter((item) => item.id !== payload.id);
+      state.purchases.splice(
+        state.purchases.findIndex((item) => item.id === payload.id),
+        1,
+      );
     },
   },
 });

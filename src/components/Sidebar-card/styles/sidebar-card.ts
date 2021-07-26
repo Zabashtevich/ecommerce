@@ -98,7 +98,7 @@ export const Amount = styled.input`
   font-weight: 600;
   font-size: 15px;
   outline: none;
-  width: 15px;
+  width: 20px;
 `;
 
 export const Plus = styled(BsPlus)`
@@ -114,6 +114,7 @@ export const Minus = styled(BsDash)`
 
 export const Price = styled.span`
   letter-spacing: 1px;
+  user-select: none;
   line-height: 24px;
   text-align: right;
   margin-top: 3px;

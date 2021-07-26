@@ -2,6 +2,7 @@ import { FC } from "react";
 
 import { IPurchase } from "../../interfaces/product";
 import { AvailableSizes } from "../../fixtures/sizes/index";
+import { useAppDispatch } from "../../hooks/redux";
 import {
   Item,
   LinkWrapper,
@@ -17,12 +18,25 @@ import {
   Minus,
   Price,
 } from "./styles/sidebar-card";
+import { changeSize, decrease, increase, remove } from "@src/redux/sidebar-slice";
 
 interface ISidebarCard {
   item: IPurchase;
 }
 
 const SidebarCard: FC<ISidebarCard> = ({ item }) => {
+  const dispatch = useAppDispatch();
+
+  function increaseAmount() {
+    if (item.amount === 20) return;
+    dispatch(increase({ id: item.id }));
+  }
+
+  function decreaseAmount() {
+    if (item.amount === 1) return dispatch(remove({ id: item.id }));
+    dispatch(decrease({ id: item.id }));
+  }
+
   return (
     <Item>
       <LinkWrapper>
@@ -34,7 +48,11 @@ const SidebarCard: FC<ISidebarCard> = ({ item }) => {
           <Subtitle>Размер:</Subtitle>
           <Inner>
             {AvailableSizes.map(({ size: availableSize }) => (
-              <Size key={availableSize} selected={availableSize === item.size}>
+              <Size
+                key={availableSize}
+                selected={availableSize === item.size}
+                onClick={() => dispatch(changeSize({ id: item.id, size: availableSize }))}
+              >
                 {availableSize}
               </Size>
             ))}
@@ -44,11 +62,11 @@ const SidebarCard: FC<ISidebarCard> = ({ item }) => {
           <Subtitle>Количество:</Subtitle>
           <Inner>
             <Amount value={item.amount} readOnly />
-            <Plus>+</Plus>
-            <Minus>-</Minus>
+            <Plus onClick={increaseAmount}>+</Plus>
+            <Minus onClick={decreaseAmount}>-</Minus>
           </Inner>
         </Wrapper>
-        <Price>3 000 RUB</Price>
+        <Price>{item.amount * Number(item.price)}</Price>
       </Description>
     </Item>
   );

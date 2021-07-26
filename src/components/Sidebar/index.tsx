@@ -29,9 +29,10 @@ interface ISidebar {
   closeSidebar: () => void;
   renderItem: (item: any) => JSX.Element;
   items: IPurchase[];
+  totalPrice: number;
 }
 
-const Sidebar: FC<ISidebar> = ({ closeSidebar, items, renderItem }) => {
+const Sidebar: FC<ISidebar> = ({ closeSidebar, items, renderItem, totalPrice }) => {
   return (
     <Outer>
       <Overlay onClick={closeSidebar} />
@@ -58,17 +59,17 @@ const Sidebar: FC<ISidebar> = ({ closeSidebar, items, renderItem }) => {
             <Details>
               <Row>
                 <DetailsTitle>ОБЩАЯ СТОИМОСТЬ:</DetailsTitle>
-                <DetailsValue>0 RUB</DetailsValue>
+                <DetailsValue>{totalPrice.toLocaleString("ru")} RUB</DetailsValue>
               </Row>
 
               <Row>
                 <DetailsTitle>СТОИМОСТЬ ДОСТАВКИ:</DetailsTitle>
-                <DetailsValue>0 RUB</DetailsValue>
+                <DetailsValue>550 RUB</DetailsValue>
               </Row>
 
               <Row>
                 <DetailsTitle>ИТОГО:</DetailsTitle>
-                <DetailsValue totalPrice={true}>0 RUB</DetailsValue>
+                <DetailsValue totalPrice={true}>{(totalPrice + 550).toLocaleString("ru")} RUB</DetailsValue>
               </Row>
             </Details>
 

@@ -7,7 +7,7 @@ import { useAppSelector, useAppDispatch } from "@src/hooks/redux";
 import { close } from "@src/redux/sidebar-slice";
 
 const SidebarModal: FC = () => {
-  const { visible, purchases } = useAppSelector(({ sidebar }) => sidebar);
+  const { visible, purchases, totalPrice } = useAppSelector(({ sidebar }) => sidebar);
   const dispatch = useAppDispatch();
 
   return (
@@ -39,6 +39,7 @@ const SidebarModal: FC = () => {
           dispatch(close());
         }}
         renderItem={(item) => <SidebarCard item={item} key={item.id} />}
+        totalPrice={totalPrice}
         items={purchases}
       />
     </CSSTransition>
