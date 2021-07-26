@@ -26,7 +26,7 @@ const SidebarCard: FC<ISidebarCard> = ({ item }) => {
   return (
     <Item>
       <LinkWrapper>
-        <Thumbnail />
+        <Thumbnail src={item.images[0]} />
       </LinkWrapper>
       <Description>
         <Title>{item.name}</Title>
@@ -43,7 +43,7 @@ const SidebarCard: FC<ISidebarCard> = ({ item }) => {
         <Wrapper>
           <Subtitle>Количество:</Subtitle>
           <Inner>
-            <Amount>1</Amount>
+            <Amount value={item.amount} readOnly />
             <Plus>+</Plus>
             <Minus>-</Minus>
           </Inner>

@@ -1,16 +1,6 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import { InitialStateType, NewSizeType, NewAmountType } from "./types";
 import { IPurchase } from "@src/interfaces/product";
-
-export interface InitialStateType<T> {
-  visible: boolean;
-  purchases: T[] & [];
-  totalPrice: number;
-}
-
-interface NewSizeType {
-  size: string;
-  newPrice: string;
-}
 
 const initialState = {
   visible: false,
@@ -22,7 +12,7 @@ const sidebarSlice = createSlice({
   name: "sidebar",
   initialState,
   reducers: {
-    addProduct: (state, { payload }: PayloadAction<IPurchase>) => {
+    add: (state, { payload }: PayloadAction<IPurchase>) => {
       state.totalPrice = state.purchases.reduce((acc, curr) => {
         acc += Number(curr.price);
         return acc;
@@ -31,18 +21,35 @@ const sidebarSlice = createSlice({
       state.purchases.push(payload);
       state.visible = true;
     },
-    openSidebar: (state) => {
+    open: (state) => {
       state.visible = true;
     },
-    closeSidebar: (state) => {
+    close: (state) => {
       state.visible = false;
     },
     changeSize: (state, { payload }: PayloadAction<NewSizeType>) => {
-      state.purchases.map((item) => {});
+      state.purchases.map((item) => {
+        item.id === payload.id ? { ...item, size: payload.size } : item;
+      });
+    },
+    increase: (state, { payload }: PayloadAction<NewAmountType>) => {
+      const purchase = state.purchases.find((item) => item.id === payload.id);
+
+      state.totalPrice += Number(purchase!.price);
+      state.purchases.map((item) => (item.id === purchase!.id ? { ...item, amount: item.amount++ } : item));
+    },
+    decrease: (state, { payload }: PayloadAction<NewAmountType>) => {
+      const purchase = state.purchases.find((item) => item.id === payload.id);
+
+      state.totalPrice -= Number(purchase!.price);
+      state.purchases.map((item) => (item.id === purchase!.id ? { ...item, amount: item.amount-- } : item));
+    },
+    remove: (state, { payload }: PayloadAction<{ id: string }>) => {
+      state.purchases.filter((item) => item.id !== payload.id);
     },
   },
 });
 
 export default sidebarSlice;
 
-export const { addProduct, openSidebar, closeSidebar } = sidebarSlice.actions;
+export const { add, open, close, increase, decrease, remove, changeSize } = sidebarSlice.actions;

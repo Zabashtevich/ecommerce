@@ -19,7 +19,7 @@ import {
 import { MobileNavModal } from "@src/features";
 import { useLoginModal } from "@src/contexts";
 import { useAppDispatch } from "@src/hooks/redux";
-import { openSidebar } from "@src/redux/sidebar-slice";
+import { open } from "@src/redux/sidebar-slice";
 
 const Navigation: FC = () => {
   const [mobileNavVisible, setMobileNavVisible] = useState(false);
@@ -42,7 +42,7 @@ const Navigation: FC = () => {
       <Buttons>
         <Account onClick={() => setLoginVisible(true)} />
         <Wrapper>
-          <Card onClick={() => dispatch(openSidebar())} />
+          <Card onClick={() => dispatch(open())} />
           <Price>0 RUB</Price>
         </Wrapper>
         <Burger onClick={() => setMobileNavVisible(true)} />

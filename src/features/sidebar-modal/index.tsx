@@ -4,7 +4,7 @@ import gsap from "gsap";
 
 import { SidebarCard, Sidebar } from "@comps";
 import { useAppSelector, useAppDispatch } from "@src/hooks/redux";
-import { closeSidebar } from "@src/redux/sidebar-slice";
+import { close } from "@src/redux/sidebar-slice";
 
 const SidebarModal: FC = () => {
   const { visible, purchases } = useAppSelector(({ sidebar }) => sidebar);
@@ -36,7 +36,7 @@ const SidebarModal: FC = () => {
     >
       <Sidebar
         closeSidebar={() => {
-          dispatch(closeSidebar());
+          dispatch(close());
         }}
         renderItem={(item) => <SidebarCard item={item} key={item.id} />}
         items={purchases}

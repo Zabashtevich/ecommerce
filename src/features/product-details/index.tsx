@@ -4,7 +4,7 @@ import { ProductSlider, Info, Recommendations } from "@src/components";
 import { Inner, Title, Container } from "./styles/product-details";
 import { IProduct } from "../../interfaces/product";
 import { useAppDispatch } from "../../hooks/redux";
-import { addProduct } from "@src/redux/sidebar-slice";
+import { add } from "@src/redux/sidebar-slice";
 
 interface IProductDetails {
   product: IProduct;
@@ -34,7 +34,7 @@ export default function ProductDetails({ product }: IProductDetails) {
 
   function addPurchaseToSidebar() {
     dispatch(
-      addProduct({
+      add({
         name: product.name,
         id: product.id,
         price,

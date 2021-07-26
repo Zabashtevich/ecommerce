@@ -6,19 +6,21 @@ export const Item = styled.li`
   align-items: center;
   margin-bottom: 22px;
   display: flex;
+  width: 305px;
 `;
 
 export const LinkWrapper = styled.a`
   border: 1px solid #e2e7ec;
   box-sizing: border-box;
   border-radius: 10px;
+  cursor: pointer;
   padding: 11px;
   height: 144px;
   width: 120px;
 `;
 
 export const Thumbnail = styled.img`
-  background-color: gray;
+  object-fit: contain;
   height: 100%;
   width: 100%;
 `;
@@ -27,9 +29,12 @@ export const Description = styled.div`
   flex-direction: column;
   margin-left: 20px;
   display: flex;
+  flex: 1 1;
 `;
 
 export const Title = styled.span`
+  white-space: pre-line;
+  text-align: center;
   margin-bottom: 8px;
   line-height: 24px;
   margin-top: 10px;
@@ -55,6 +60,8 @@ export const Subtitle = styled.span`
 `;
 
 export const Inner = styled.div`
+  margin-top: 0.2rem;
+  align-items: center;
   line-height: 22px;
   display: flex;
 `;
@@ -81,17 +88,23 @@ export const Size = styled.button<ISize>`
     `};
 `;
 
-export const Amount = styled.span`
+export const Amount = styled.input`
   border-right: 1px solid rgb(193, 193, 193);
+  border: none;
+  border-right: 1px solid rgba(0, 0, 0, 1);
+  padding-right: 0.5rem;
   letter-spacing: 1px;
-  padding-right: 12px;
+  text-align: center;
   font-weight: 600;
   font-size: 15px;
+  outline: none;
+  width: 15px;
 `;
 
 export const Plus = styled(BsPlus)`
-  margin-left: 12px;
+  margin-left: 10px;
   cursor: pointer;
+  color: #000;
 `;
 
 export const Minus = styled(BsDash)`
