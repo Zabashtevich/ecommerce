@@ -5,11 +5,11 @@ import { Outer, Inner, Overlay, Container, Button, Close } from "./styles/bounce
 
 interface IBounceModal {
   children: JSX.Element | JSX.Element[];
-  setVisible: (value: boolean) => void;
+  closeModal: () => void;
   visible: boolean;
 }
 
-export default function BounceModal({ visible, setVisible, children }: IBounceModal) {
+export default function BounceModal({ visible, closeModal, children }: IBounceModal) {
   useEffect(() => {
     if (visible) {
       document.body.style.overflow = "hidden";
@@ -27,13 +27,13 @@ export default function BounceModal({ visible, setVisible, children }: IBounceMo
           animate={{ opacity: 1, transition: { duration: 1 } }}
           exit={{ opacity: 0, transition: { duration: 0.5 } }}
         >
-          <Overlay onClick={() => setVisible(false)} />
+          <Overlay onClick={closeModal} />
           <Inner>
             <Container
               animate={{ opacity: [0, 1], scale: [1.5, 0.8, 1], transition: { duration: 1 } }}
               exit={{ scale: 0.5, opacity: 0, transition: { duration: 0.5 } }}
             >
-              <Button onClick={() => setVisible(false)}>
+              <Button onClick={closeModal}>
                 <Close />
               </Button>
               {children}

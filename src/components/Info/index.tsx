@@ -1,4 +1,4 @@
-import { useModalsContext } from "@src/contexts";
+import { useCareContext, useSizeContext } from "@src/contexts";
 import { AvailableSizes } from "@src/fixtures/sizes";
 import {
   Container,
@@ -37,7 +37,8 @@ export default function Info({
   amount,
   size,
 }: InfoProps) {
-  const { setVisible } = useModalsContext();
+  const [, setSizeVisible] = useSizeContext();
+  const [, setCareVisible] = useCareContext();
 
   return (
     <Container>
@@ -52,10 +53,8 @@ export default function Info({
       </Description>
 
       <Wrapper>
-        <ModalButton onClick={() => setVisible((prev) => ({ ...prev, sizeVisible: true }))}>
-          РАЗМЕРНАЯ СЕТКА
-        </ModalButton>
-        <ModalButton onClick={() => setVisible((prev) => ({ ...prev, careVisible: true }))}>УХОД ЗА ВЕЩЬЮ</ModalButton>
+        <ModalButton onClick={() => setCareVisible(true)}>РАЗМЕРНАЯ СЕТКА</ModalButton>
+        <ModalButton onClick={() => setSizeVisible(true)}>УХОД ЗА ВЕЩЬЮ</ModalButton>
       </Wrapper>
 
       <Wrapper>

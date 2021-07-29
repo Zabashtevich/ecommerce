@@ -37,9 +37,9 @@ const Sidebar: FC<ISidebar> = ({ closeSidebar, items, renderItem, totalPrice }) 
     <Outer>
       <Overlay onClick={closeSidebar} />
       <Container>
-        <Continue>
+        <Continue onClick={closeSidebar}>
           <Arrow />
-          <Subtitle onClick={closeSidebar}>ПРОДОЛЖИТЬ ПОКУПКИ</Subtitle>
+          <Subtitle>ПРОДОЛЖИТЬ ПОКУПКИ</Subtitle>
         </Continue>
         <Header>
           <Title>Мои покупки</Title>

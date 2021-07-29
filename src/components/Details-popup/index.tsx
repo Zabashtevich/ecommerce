@@ -1,3 +1,4 @@
+import { IProduct } from "../../interfaces/product";
 import {
   Inner,
   Overlay,
@@ -11,21 +12,29 @@ import {
   ModulButton,
 } from "./styles";
 
-export default function DetailsPopup() {
+interface IDetailsPopup {
+  product: IProduct;
+}
+
+export default function DetailsPopup({ product }: IDetailsPopup) {
   return (
     <Inner>
       <Overlay />
       <Container>
         <Column>
-          <Thumbnail />
+          <Thumbnail src={product.images[0]} />
         </Column>
         <Column>
-          <Title></Title>
-          <Price></Price>
-          <Description></Description>
+          <Title>{product.name}</Title>
+          <Price>{Number(product.price).toLocaleString("ru")} RUB</Price>
+          <Description>
+            {product.description.map((item) => (
+              <p key={item.slice(0, 5)}>{item}</p>
+            ))}
+          </Description>
           <Wrapper>
-            <ModulButton></ModulButton>
-            <ModulButton></ModulButton>
+            <ModulButton>РАЗМЕРНАЯ СЕТКА</ModulButton>
+            <ModulButton>УХОД ЗА ВЕЩЬЮ</ModulButton>
           </Wrapper>
         </Column>
       </Container>

@@ -19,7 +19,7 @@ export const Container = styled.div``;
 
 export const Column = styled.div``;
 
-export const Thumbnail = styled.div``;
+export const Thumbnail = styled.img``;
 
 export const Title = styled.div``;
 
