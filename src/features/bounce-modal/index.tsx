@@ -1,47 +1,39 @@
 import { AnimatePresence } from "framer-motion";
 import { useEffect } from "react";
 
-import { useModalsContext } from "../../contexts";
 import { Outer, Inner, Overlay, Container, Button, Close } from "./styles/bounce-modal";
 
 interface IBounceModal {
-  contextKey: string;
   children: JSX.Element | JSX.Element[];
+  setVisible: (value: boolean) => void;
+  visible: boolean;
 }
 
-export default function BounceModal({ contextKey, children }: IBounceModal) {
-  const { visible, setVisible } = useModalsContext();
-
-  const modalVisible = visible[contextKey as keyof typeof visible];
-
-  function closeModal() {
-    setVisible((prev) => ({ ...prev, [contextKey]: false }));
-  }
-
+export default function BounceModal({ visible, setVisible, children }: IBounceModal) {
   useEffect(() => {
-    if (modalVisible) {
+    if (visible) {
       document.body.style.overflow = "hidden";
     }
     return () => {
       document.body.style.overflow = "auto";
     };
-  }, [modalVisible]);
+  }, [visible]);
 
   return (
     <AnimatePresence>
-      {modalVisible && (
+      {visible && (
         <Outer
           initial={{ opacity: 0 }}
           animate={{ opacity: 1, transition: { duration: 1 } }}
           exit={{ opacity: 0, transition: { duration: 0.5 } }}
         >
-          <Overlay onClick={closeModal} />
+          <Overlay onClick={() => setVisible(false)} />
           <Inner>
             <Container
               animate={{ opacity: [0, 1], scale: [1.5, 0.8, 1], transition: { duration: 1 } }}
               exit={{ scale: 0.5, opacity: 0, transition: { duration: 0.5 } }}
             >
-              <Button onClick={closeModal}>
+              <Button onClick={() => setVisible(false)}>
                 <Close />
               </Button>
               {children}

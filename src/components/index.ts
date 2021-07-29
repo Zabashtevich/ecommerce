@@ -17,3 +17,4 @@ export { default as Accordion } from "./Accordion";
 export { default as Error } from "./Error";
 export { default as CareInfo } from "./Additional-info/care-info";
 export { default as SizeInfo } from "./Additional-info/size-info";
+export { default as DetailsPopup } from "./Details-popup";
