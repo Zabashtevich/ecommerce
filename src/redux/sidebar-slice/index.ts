@@ -1,6 +1,7 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { InitialStateType, NewSizeType, NewAmountType } from "./types";
 import { IPurchase } from "@src/interfaces/product";
+import { IProduct } from "../../interfaces/product";
 
 const initialState = {
   visible: false,

@@ -19,12 +19,14 @@ import {
   Price,
 } from "./styles/sidebar-card";
 import { changeSize, decrease, increase, remove } from "@src/redux/sidebar-slice";
+import useDetailsContext from "../../contexts/details-context/index";
 
 interface ISidebarCard {
   item: IPurchase;
 }
 
 const SidebarCard: FC<ISidebarCard> = ({ item }) => {
+  const [, , setDetailsContext] = useDetailsContext();
   const dispatch = useAppDispatch();
 
   function increaseAmount() {
@@ -39,11 +41,39 @@ const SidebarCard: FC<ISidebarCard> = ({ item }) => {
 
   return (
     <Item>
-      <LinkWrapper>
+      <LinkWrapper
+        onClick={() =>
+          setDetailsContext({
+            visible: true,
+            item: {
+              id: item.id,
+              name: item.name,
+              price: item.price,
+              description: item.description,
+              images: item.images,
+            },
+          })
+        }
+      >
         <Thumbnail src={item.images[0]} />
       </LinkWrapper>
       <Description>
-        <Title>{item.name}</Title>
+        <Title
+          onClick={() =>
+            setDetailsContext({
+              visible: true,
+              item: {
+                id: item.id,
+                name: item.name,
+                price: item.price,
+                description: item.description,
+                images: item.images,
+              },
+            })
+          }
+        >
+          {item.name}
+        </Title>
         <Wrapper>
           <Subtitle>Размер:</Subtitle>
           <Inner>
