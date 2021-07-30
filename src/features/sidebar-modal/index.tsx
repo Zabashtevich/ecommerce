@@ -1,14 +1,27 @@
 import { FC } from "react";
 import { CSSTransition } from "react-transition-group";
 import gsap from "gsap";
+import { useEffect } from "react";
 
 import { SidebarCard, Sidebar } from "@comps";
 import { useAppSelector, useAppDispatch } from "@src/hooks/redux";
-import { close } from "@src/redux/sidebar-slice";
+import { close, updateState } from "@src/redux/sidebar-slice";
+import useLocalStorage from "../../hooks/useLocalStorage/index";
 
 const SidebarModal: FC = () => {
   const { visible, purchases, totalPrice } = useAppSelector(({ sidebar }) => sidebar);
+  const [storagePurchases, updateStorage] = useLocalStorage("purchases");
   const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    if (storagePurchases) dispatch(updateState(storagePurchases));
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    updateStorage({ purchases, totalPrice });
+  }, [purchases, totalPrice]);
 
   return (
     <CSSTransition

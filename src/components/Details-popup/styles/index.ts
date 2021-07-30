@@ -12,7 +12,7 @@ export const Column = styled.div`
 
 export const Thumbnail = styled.img`
   object-fit: contain;
-  max-width: 75%;
+  max-width: 60%;
 `;
 
 export const Title = styled.h2`

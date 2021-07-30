@@ -1,7 +1,6 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { InitialStateType, NewSizeType, NewAmountType } from "./types";
 import { IPurchase } from "@src/interfaces/product";
-import { IProduct } from "../../interfaces/product";
 
 const initialState = {
   visible: false,
@@ -14,13 +13,21 @@ const sidebarSlice = createSlice({
   initialState,
   reducers: {
     add: (state, { payload }: PayloadAction<IPurchase>) => {
+      const existedElement = state.purchases.find((item) => item.id === payload.id);
+      if (existedElement) {
+        state.purchases.map((item) =>
+          item.id === existedElement.id
+            ? ((item.price = (Number(item.price) + Number(payload.price)).toString()), item.amount++)
+            : item,
+        );
+      } else {
+        state.purchases.push(payload);
+      }
+
       state.totalPrice = state.purchases.reduce((acc, curr) => {
         acc += Number(curr.price);
-        console.log(acc);
         return acc;
       }, 0);
-
-      state.purchases.push(payload);
       state.visible = true;
     },
     open: (state) => {
@@ -52,9 +59,13 @@ const sidebarSlice = createSlice({
         1,
       );
     },
+    updateState: (state, { payload }: PayloadAction<{ purchases: IPurchase[]; totalPrice: number }>) => {
+      state.purchases.push(...payload.purchases);
+      state.totalPrice = payload.totalPrice;
+    },
   },
 });
 
 export default sidebarSlice;
 
-export const { add, open, close, increase, decrease, remove, changeSize } = sidebarSlice.actions;
+export const { add, open, close, increase, decrease, remove, changeSize, updateState } = sidebarSlice.actions;

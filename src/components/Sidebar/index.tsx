@@ -1,6 +1,7 @@
 import { FC } from "react";
 
 import { IPurchase } from "../../interfaces/product";
+
 import {
   Outer,
   Overlay,

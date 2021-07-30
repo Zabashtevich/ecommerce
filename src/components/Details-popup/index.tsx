@@ -10,6 +10,8 @@ export default function DetailsPopup({ product }: IDetailsPopup) {
   const [, setSizeVisible] = useSizeContext();
   const [, setCareVisible] = useCareContext();
 
+  console.log(product.price);
+
   return (
     <Container>
       <Column>
