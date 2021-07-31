@@ -1,21 +1,23 @@
 import { AnimatePresence } from "framer-motion";
 
 import { Container, Message, Timeline } from "./styles";
-import { useInformationContext } from "../../contexts";
+import { useAppSelector, useAppDispatch } from "../../hooks/redux";
+import { closePopup } from "@src/redux/notice-slice";
 
 export default function InformationModal() {
-  const [{ visible, message }, setInfoState] = useInformationContext();
+  const { visible, message, id } = useAppSelector((store) => store.notice);
+  const dispatch = useAppDispatch();
 
   return (
     <AnimatePresence>
       {visible && (
-        <Container initial={{ y: 200 }} animate={{ y: 0 }} transition={{ duration: 0.8 }} exit={{ y: 200 }}>
+        <Container transition={{ duration: 0.2 }} exit={{ opacity: 0 }} key={`${message}${id}`}>
           <Message>{message}</Message>
           <Timeline
             initial={{ width: "100%" }}
             animate={{ width: 0 }}
-            transition={{ duration: 4, delay: 0.8 }}
-            onAnimationComplete={() => setInfoState({ visible: false, message: null })}
+            transition={{ duration: 3 }}
+            onAnimationComplete={() => dispatch(closePopup())}
           />
         </Container>
       )}

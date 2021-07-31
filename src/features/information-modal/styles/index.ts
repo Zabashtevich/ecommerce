@@ -10,6 +10,7 @@ export const Container = styled(motion.div)`
   overflow: hidden;
   position: fixed;
   display: flex;
+  z-index: 1000;
   width: 350px;
   bottom: 39px;
   right: 19px;
