@@ -50,15 +50,17 @@ const sidebarSlice = createSlice({
     decrease: (state, { payload }: PayloadAction<NewAmountType>) => {
       const purchase = state.purchases.find((item) => item.id === payload.id);
 
-      state.totalPrice -= Number(purchase!.price);
-      state.purchases.map((item) => (item.id === purchase!.id ? { ...item, amount: item.amount-- } : item));
+      if (purchase!.amount === 1) {
+        state.purchases.splice(
+          state.purchases.findIndex((item) => item.id === payload.id),
+          1,
+        );
+      } else {
+        state.purchases.map((item) => (item.id === purchase!.id ? { ...item, amount: item.amount-- } : item));
+      }
+      state.totalPrice = state.totalPrice - Number(purchase!.price);
     },
-    remove: (state, { payload }: PayloadAction<{ id: string }>) => {
-      state.purchases.splice(
-        state.purchases.findIndex((item) => item.id === payload.id),
-        1,
-      );
-    },
+
     updateState: (state, { payload }: PayloadAction<{ purchases: IPurchase[]; totalPrice: number }>) => {
       state.purchases.push(...payload.purchases);
       state.totalPrice = payload.totalPrice;
@@ -68,4 +70,4 @@ const sidebarSlice = createSlice({
 
 export default sidebarSlice;
 
-export const { add, open, close, increase, decrease, remove, changeSize, updateState } = sidebarSlice.actions;
+export const { add, open, close, increase, decrease, changeSize, updateState } = sidebarSlice.actions;

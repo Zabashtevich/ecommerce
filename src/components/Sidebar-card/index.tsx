@@ -18,7 +18,7 @@ import {
   Minus,
   Price,
 } from "./styles/sidebar-card";
-import { changeSize, decrease, increase, remove } from "@src/redux/sidebar-slice";
+import { changeSize, decrease, increase } from "@src/redux/sidebar-slice";
 import useDetailsContext from "../../contexts/details-context/index";
 
 interface ISidebarCard {
@@ -35,7 +35,6 @@ const SidebarCard: FC<ISidebarCard> = ({ item }) => {
   }
 
   function decreaseAmount() {
-    if (item.amount === 1) return dispatch(remove({ id: item.id }));
     dispatch(decrease({ id: item.id }));
   }
 

@@ -20,10 +20,12 @@ import { MobileNavModal } from "@src/features";
 import { useLoginModal } from "@src/contexts";
 import { useAppDispatch } from "@src/hooks/redux";
 import { open } from "@src/redux/sidebar-slice";
+import { useAppSelector } from "../../hooks/redux";
 
 const Navigation: FC = () => {
   const [mobileNavVisible, setMobileNavVisible] = useState(false);
   const { setVisible: setLoginVisible } = useLoginModal();
+  const { totalPrice } = useAppSelector((store) => store.sidebar);
   const dispatch = useAppDispatch();
 
   return (
@@ -43,7 +45,7 @@ const Navigation: FC = () => {
         <Account onClick={() => setLoginVisible(true)} />
         <Wrapper>
           <Card onClick={() => dispatch(open())} />
-          <Price>0 RUB</Price>
+          <Price>{totalPrice.toLocaleString("ru")} RUB</Price>
         </Wrapper>
         <Burger onClick={() => setMobileNavVisible(true)} />
       </Buttons>
