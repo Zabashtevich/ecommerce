@@ -14,6 +14,7 @@ import { store } from "@src/redux";
 import CareContextProvider from "@src/contexts/care-context/context";
 import SizeContextProvider from "@src/contexts/size-context/context";
 import DetailsContextProvider from "@src/contexts/details-context/context";
+import { RouterLoader } from "@src/components";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -30,6 +31,7 @@ function MyApp({ Component, pageProps }: AppProps) {
                     <LoginModal />
                     <SignupModal />
                     <InformationModal />
+                    <RouterLoader />
                   </AppLayout>
                 </Provider>
               </DetailsContextProvider>
