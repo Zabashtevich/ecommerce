@@ -15,11 +15,10 @@ const sidebarSlice = createSlice({
     add: (state, { payload }: PayloadAction<IPurchase>) => {
       const existedElement = state.purchases.find((item) => item.id === payload.id);
       if (existedElement) {
-        state.purchases.map((item) =>
-          item.id === existedElement.id
-            ? ((item.price = (Number(item.price) + Number(payload.price)).toString()), item.amount++)
-            : item,
-        );
+        state.purchases.map((item) => {
+          if (item.id === existedElement.id) item.amount++;
+          return item;
+        });
       } else {
         state.purchases.push(payload);
       }

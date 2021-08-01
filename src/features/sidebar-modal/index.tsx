@@ -51,7 +51,7 @@ const SidebarModal: FC = () => {
         closeSidebar={() => {
           dispatch(close());
         }}
-        renderItem={(item) => <SidebarCard item={item} key={item.id} />}
+        renderItem={(item) => <SidebarCard item={item} key={`${item.id}${item.name}`} />}
         totalPrice={totalPrice}
         items={purchases}
       />

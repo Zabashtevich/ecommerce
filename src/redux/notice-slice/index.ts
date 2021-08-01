@@ -3,18 +3,23 @@ import { createSlice } from "@reduxjs/toolkit";
 export interface InitialStateType {
   visible: boolean;
   message: string | null;
+  running: boolean;
   id: number;
 }
 
-const initialState = { visible: false, message: null, id: 1 } as InitialStateType;
+const initialState = { visible: false, message: null, id: 1, running: false } as InitialStateType;
 
 const noticeSlice = createSlice({
   name: "notice",
   initialState,
   reducers: {
-    closePopup: (state) => {
+    closeNotice: (state) => {
+      state.running = false;
       state.message = null;
       state.visible = false;
+    },
+    animStart: (state) => {
+      state.running = true;
     },
   },
   extraReducers: (builder) => {
@@ -31,6 +36,6 @@ const noticeSlice = createSlice({
   },
 });
 
-export const { closePopup } = noticeSlice.actions;
+export const { closeNotice, animStart } = noticeSlice.actions;
 
 export default noticeSlice;
