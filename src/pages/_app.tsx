@@ -15,6 +15,7 @@ import CareContextProvider from "@src/contexts/care-context/context";
 import SizeContextProvider from "@src/contexts/size-context/context";
 import DetailsContextProvider from "@src/contexts/details-context/context";
 import { RouterLoader } from "@src/components";
+import { Auth0Provider } from "@auth0/auth0-react";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -25,14 +26,20 @@ function MyApp({ Component, pageProps }: AppProps) {
             <SizeContextProvider>
               <DetailsContextProvider>
                 <Provider store={store}>
-                  <AppLayout>
-                    <Component {...pageProps} />
-                    <SidebarModal />
-                    <LoginModal />
-                    <SignupModal />
-                    <InformationModal />
-                    <RouterLoader />
-                  </AppLayout>
+                  <Auth0Provider
+                    domain="dev-9vr-o9n3.us.auth0.com"
+                    clientId="Kr0F3llXiZGLpjG8LFxYuzhap1cZ6Tnw"
+                    redirectUri="http://localhost:3000"
+                  >
+                    <AppLayout>
+                      <Component {...pageProps} />
+                      <SidebarModal />
+                      <LoginModal />
+                      <SignupModal />
+                      <InformationModal />
+                      <RouterLoader />
+                    </AppLayout>
+                  </Auth0Provider>
                 </Provider>
               </DetailsContextProvider>
             </SizeContextProvider>

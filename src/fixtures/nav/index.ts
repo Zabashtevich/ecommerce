@@ -12,5 +12,4 @@ export const NavigationCategories: NavigationItem[] = [
   { name: "Рюкзаки", category: "bags" },
   { name: "Сувениры", category: "souvenirs" },
   { name: "Memes", category: "memes" },
-  { name: "FAQ", category: "faq" },
 ];

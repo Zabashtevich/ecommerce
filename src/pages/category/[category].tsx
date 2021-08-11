@@ -4,12 +4,15 @@ import { CardList, Card } from "@src/components";
 import { NextPageContext } from "next";
 import { firebase } from "@src/libs";
 import { IProduct } from "../../interfaces/product";
+import { useRouter } from "next/dist/client/router";
 
 interface ICategoryPage {
   products: IProduct[];
 }
 
 export default function CategoryPage({ products }: ICategoryPage) {
+  const { query } = useRouter();
+
   return (
     <>
       <Head>
@@ -18,7 +21,9 @@ export default function CategoryPage({ products }: ICategoryPage) {
 
       <CardList
         items={products}
-        renderItem={(item) => <Card item={item} key={item.id} />}
+        renderItem={(item) => (
+          <Card item={item} key={`${item.name}${item.id}`} link={`${query.category}/${item.id}`} />
+        )}
       />
     </>
   );
@@ -30,11 +35,7 @@ interface ProductContext extends NextPageContext {
 
 export async function getServerSideProps({ query }: ProductContext) {
   try {
-    const collections = await firebase
-      .firestore()
-      .collection("products")
-      .doc(query.category)
-      .get();
+    const collections = await firebase.firestore().collection("products").doc(query.category).get();
 
     const response = collections.data() as { items: IProduct[] };
 

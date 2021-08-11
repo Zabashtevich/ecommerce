@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@auth0/auth0-react": "^1.6.0",
     "@reduxjs/toolkit": "^1.6.1",
     "@types/swiper": "^5.4.3",
     "firebase": "^8.7.1",

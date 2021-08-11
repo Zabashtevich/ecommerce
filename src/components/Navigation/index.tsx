@@ -1,6 +1,6 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import Link from "next/link";
-import { useState } from "react";
+import { useAuth0 } from "@auth0/auth0-react";
 
 import { NavigationCategories } from "@src/fixtures/nav";
 import {
@@ -21,11 +21,15 @@ import { useLoginModal } from "@src/contexts";
 import { useAppDispatch } from "@src/hooks/redux";
 import { open } from "@src/redux/sidebar-slice";
 import { useAppSelector } from "../../hooks/redux";
+import { useRouter } from "next/dist/client/router";
 
 const Navigation: FC = () => {
   const [mobileNavVisible, setMobileNavVisible] = useState(false);
   const { setVisible: setLoginVisible } = useLoginModal();
   const { totalPrice } = useAppSelector((store) => store.sidebar);
+  const { isAuthenticated } = useAuth0();
+  const router = useRouter();
+
   const dispatch = useAppDispatch();
 
   return (
@@ -39,17 +43,29 @@ const Navigation: FC = () => {
               </Link>
             </NavItem>
           ))}
+          <NavItem key={"faq"}>
+            <Link href={`/faq`} passHref>
+              <NavLink title="go to faq page">FAQ</NavLink>
+            </Link>
+          </NavItem>
         </NavList>
       </Navbar>
       <Buttons>
-        <Account onClick={() => setLoginVisible(true)} />
+        <Account
+          onClick={() => {
+            isAuthenticated ? setLoginVisible(true) : router.push("/account");
+          }}
+        />
         <Wrapper>
           <Card onClick={() => dispatch(open())} />
           <Price>{totalPrice.toLocaleString("ru")} RUB</Price>
         </Wrapper>
         <Burger onClick={() => setMobileNavVisible(true)} />
       </Buttons>
-      <MobileNavModal mobileNavVisible={mobileNavVisible} setMobileNavVisible={setMobileNavVisible} />
+      <MobileNavModal
+        mobileNavVisible={mobileNavVisible}
+        setMobileNavVisible={setMobileNavVisible}
+      />
     </Container>
   );
 };

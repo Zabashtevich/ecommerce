@@ -44,17 +44,22 @@ export const Product = styled.div`
   }
 `;
 
-export const Details = styled.button`
+export const Details = styled.a`
   background-color: white;
+  justify-content: center;
+  text-decoration: none;
   border-radius: 100px;
   letter-spacing: 1px;
+  align-items: center;
   visibility: hidden;
   cursor: pointer;
   font-size: 15px;
+  display: flex;
   border: none;
   width: 220px;
   height: 50px;
   z-index: 200;
+  color: #000;
   opacity: 0;
 `;
 

@@ -28,8 +28,18 @@ const noticeSlice = createSlice({
       state.visible = true;
       state.id++;
     });
+    builder.addCase("sidebar/increase", (state) => {
+      state.message = "Product added to card";
+      state.visible = true;
+      state.id++;
+    });
     builder.addCase("sidebar/decrease", (state) => {
       state.message = "Product amount decreased";
+      state.visible = true;
+      state.id++;
+    });
+    builder.addCase("sidebar/changeSize", (state) => {
+      state.message = "Product size changed";
       state.visible = true;
       state.id++;
     });

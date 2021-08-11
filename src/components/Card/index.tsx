@@ -1,22 +1,15 @@
 import { FC } from "react";
+import NextLink from "next/link";
 
 import { IProduct } from "@src/interfaces/product";
-import {
-  Container,
-  Product,
-  Thumbnail,
-  Inner,
-  Details,
-  Price,
-  Button,
-  Name,
-} from "./styles/card";
+import { Container, Product, Thumbnail, Inner, Details, Price, Button, Name } from "./styles/card";
 
 interface ICard {
   item: IProduct;
+  link: string;
 }
 
-const Card: FC<ICard> = ({ item }) => {
+const Card: FC<ICard> = ({ item, link }) => {
   return (
     <Container>
       <Product>
@@ -24,7 +17,9 @@ const Card: FC<ICard> = ({ item }) => {
         <Inner>
           <Price>{Number(item.price).toLocaleString("ru")} RUB</Price>
         </Inner>
-        <Details>ПОДРОБНЕЕ</Details>
+        <NextLink href={link} passHref>
+          <Details>ПОДРОБНЕЕ</Details>
+        </NextLink>
       </Product>
 
       <Button>
